@@ -78,12 +78,38 @@ jobs:
         run: |
           sudo rm -rf /usr/local/Caskroom /usr/local/Homebrew /usr/local/bin/brew \
             /usr/local/.??* /Applications/Xcode.app /Library/Developer/CommandLineTools
+      - name: Create a non-admin user account
+        run: |
+          username=non-admin-user
+          if ${{ runner.os == 'Linux' }}; then
+            sudo useradd -m $username
+            home_prefix=/home
+          elif ${{ runner.os == 'macOS' }}; then
+            sudo sysadminctl -addUser non-admin-user
+            home_prefix=/Users
+          fi
+          echo "NON_ADMIN_USER_HOME=$home_prefix/$username" >>"$GITHUB_ENV"
+      - name: Run bootstrap.sh with a non-admin user without Homebrew installed
+        run: |
+          bootstrap_script_url="https://raw.githubusercontent.com/$STRAP_GITHUB_USER/dotfiles/$STRAP_DOTFILES_BRANCH/bootstrap.sh"
+          sudo \
+            --preserve-env=STRAP_CI,STRAP_DEBUG,STRAP_DOTFILES_BRANCH,STRAP_GIT_EMAIL,STRAP_GIT_NAME,STRAP_GITHUB_USER \
+            --user=non-admin-user \
+            /usr/bin/env bash -c "$(curl -fsSL $bootstrap_script_url)"
+        working-directory: ${{ env.NON_ADMIN_USER_HOME }}
       - name: Run bootstrap.sh
         run: |
           bootstrap_script_url="https://raw.githubusercontent.com/$STRAP_GITHUB_USER/dotfiles/$STRAP_DOTFILES_BRANCH/bootstrap.sh"
           /usr/bin/env bash -c "$(curl -fsSL $bootstrap_script_url)"
       - name: Rerun bootstrap.sh to test idempotence
         run: bash "$HOME/.dotfiles/bootstrap.sh"
+      - name: Rerun bootstrap.sh with a non-admin user
+        run: |
+          sudo \
+            --preserve-env=STRAP_CI,STRAP_DEBUG,STRAP_DOTFILES_BRANCH,STRAP_GIT_EMAIL,STRAP_GIT_NAME,STRAP_GITHUB_USER \
+            --user=non-admin-user \
+            /usr/bin/env bash "$NON_ADMIN_USER_HOME/.dotfiles/bootstrap.sh"
+        working-directory: ${{ env.NON_ADMIN_USER_HOME }}
       - name: Check Homebrew configuration
         run: brew config
       - name: Check for potential problems with brew doctor
