@@ -618,7 +618,7 @@ cask "lulu"
 cask "obs"
 # ocenaudio
 # osxfuse
-cask pacifist
+cask "pacifist"
 # paintbrush
 cask pop
 # radio-silence
