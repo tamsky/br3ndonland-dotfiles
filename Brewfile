@@ -1,7 +1,17 @@
 cask_args appdir: "/Applications", require_sha: true
+
+#
+# brew tap-info --installed
+#
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "zackelia/formulae"
+
+tap "cloudflare/cloudflare"
+#tap "hashicorp/tap"
+tap "homebrew/cask-fonts"
+#tap "wallix/awless"
+
 
 # autoconf
 # automake
@@ -38,7 +48,6 @@ brew "gnupg"
 brew "gnu-sed"
 brew "gnu-tar"
 brew "go"
-brew "godep"
 brew "gomplate"
 brew "grep"
 
