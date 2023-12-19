@@ -24,17 +24,17 @@ else
   echo "Skipping Hatch install."
 fi
 
-### Install VSCode extensions
-for i in {code,code-exploration,code-insiders,code-server,codium}; do
-  "$HOME"/.dotfiles/scripts/vscode-extensions.sh "$i"
-done
+# ### Install VSCode extensions
+# for i in {code,code-exploration,code-insiders,code-server,codium}; do
+#   "$HOME"/.dotfiles/scripts/vscode-extensions.sh "$i"
+# done
 
 ### Set shell
-if ! [[ $SHELL =~ "zsh" ]] && command -v zsh &>/dev/null; then
-  echo "--> Changing shell to Zsh. Password entry required."
+if ! [[ $SHELL =~ "bash" ]] && command -v bash &>/dev/null; then
+  echo "--> Changing shell to bash. Password entry required."
   [ "${LINUX:-0}" -gt 0 ] || [ "$(uname)" = "Linux" ] &&
-    command -v zsh | sudo tee -a /etc/shells
-  sudo chsh -s "$(command -v zsh)" "$USER"
+    command -v bash | sudo tee -a /etc/shells
+  sudo chsh -s "$(command -v bash)" "$USER"
 else
-  echo "Shell is already set to Zsh."
+  echo "Shell is already set to Bash."
 fi
