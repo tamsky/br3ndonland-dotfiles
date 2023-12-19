@@ -61,6 +61,41 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Use keyboard navigation to move focus between controls (tab navigation)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
+#
+# assign L_CONTROL(0x39) to CAPS-LOCK(0xE0)
+#
+# Imperative setting (does not last across reboots)
+hidutil property --set \
+  '{"UserKeyMapping":
+         [{"HIDKeyboardModifierMappingSrc":0x700000039,
+           "HIDKeyboardModifierMappingDst":0x7000000E0}]
+   }'
+
+# install launch agent to persist this change
+cat > ~/Library/LaunchAgents/com.tamsky.KeyRemapping.plist <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>Label</key>
+        <string>com.tamsky.KeyRemapping</string>
+        <key>ProgramArguments</key>
+        <array>
+                <string>/usr/bin/hidutil</string>
+                <string>property</string>
+                <string>--set</string>
+                <string>{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,
+           "HIDKeyboardModifierMappingDst":0x7000000E0}]}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+</dict>
+</plist>
+EOF
+
+echo restart/logout to enable keyboard modifier remappings
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
