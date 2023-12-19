@@ -620,7 +620,7 @@ cask "obs"
 # osxfuse
 cask "pacifist"
 # paintbrush
-cask pop
+cask "pop"
 # radio-silence
 # rember
 # schism-tracker
