@@ -2,12 +2,37 @@ cask_args appdir: "/Applications", require_sha: true
 tap "homebrew/bundle"
 tap "homebrew/services"
 
+
+# autoconf
+# automake
+# awsume
+#
+
+brew "aldente"
 brew "awscli"
 brew "bash"
+brew "bash-completion"
+
+brew "bclm"
+brew "cmake"
+brew "coreutils"
+brew "curl"
+# brew "direnv"
+
 #brew "black", restart_service: :changed
+
+brew "eksctl"
+brew "emacs"
+brew "exiftool"
+brew "figlet"
+brew "findutils"
+
 brew "ffmpeg"
 brew "findutils"
 brew "flake8"
+
+brew "gawk"
+brew "gd"
 brew "gh"
 brew "git"
 brew "git-lfs"
@@ -15,47 +40,125 @@ brew "gnupg"
 brew "gnu-sed"
 brew "gnu-tar"
 brew "go"
+brew "godep"
+brew "gomplate"
 brew "grep"
+
 brew "helm"
 brew "httpie"
+
+brew "imagemagick"
+brew "inetutils"
+
 brew "jq"
 brew "jupyterlab"
+brew "just"
+
+brew "k9s"
+brew "krew"
+brew "kubent"
+brew "kustomize"
+
+brew "llvm"
+# brew """
 brew "libfido2"
 brew "macos-trash" if OS.mac?
 brew "mas" if OS.mac?
 brew "media-info"
-brew "mkvtoolnix"
-brew "mp4v2"
+#brew "mkvtoolnix"
+#brew "mp4v2"
+brew "m4"
+brew "make"
+brew "mercurial"
+brew "mtr"
+brew "nmap"
+
+
 # brew "mypy"
 # brew "mysql-client"
 # brew "node"
 brew "openssh"
 brew "opentofu"
-# brew "pinentry"       # gpg related
-# brew "pinentry-mac"   # gpg related
+brew "openssl@3"
+brew "opus"
+
+brew "pcre"
+brew "pcre2"
+brew "pidof"
+
+brew "pinentry"       # gpg related
+brew "pinentry-mac"   # gpg related
+
 #brew "pipx"
 #brew "pnpm"
 #brew "postgresql@15", restart_service: :changed
 #brew "pre-commit"
 brew "prettier"
+brew "pstree"
+brew "pyenv"
+brew "pyenv-virtualenv"
 brew "python"
+brew "python-brotli"
+brew "python-certifi"
+brew "python-click"
+brew "python-cryptography"
+brew "python-lxml"
+brew "python-markupsafe"
+brew "python-mutagen"
+brew "python-packaging"
+brew "python-psutil"
+brew "python-pytz"
+brew "python-setuptools"
+brew "python-typing-extensions"
+brew "python@3.12"
+
+
+
 brew "r"
 brew "rclone"
 brew "rust"
 brew "shellcheck"
 brew "shfmt"
+brew "socat"
 brew "starship"
+
 brew "taplo"
+brew "tcl-tk"
+brew "tcping"
 brew "terraform@1.5"
 brew "terragrunt"
+brew "tfenv"
+brew "transmission-cli"
+brew "tree"
+brew "tree-sitter"
+
 # brew "terraformer"
 # brew "typescript"
+
+brew "unbound"
+brew "unrar"
+
+# TODO, re-eval:
+# brew "vncsnapshot"
+# brew "wakatime-cli"
+
+brew "wget"
 # brew "wrangler"
-brew "xquartz"
+brew "watch"
+brew "watchman"
+
+brew "xz"
+
 brew "ykman"
+brew "yamllint"
+brew "yq"
+brew "yt-dlp"
+brew "zeromq"
+brew "zxing-cpp"
 #brew "zsh"
 #brew "zsh-completions"
 #brew "zsh-syntax-highlighting"
+
 
 cask "1password"
 cask "1password-cli"
@@ -68,7 +171,6 @@ cask "iina"
 # cask "karabiner-elements"
 cask "kitty"   # gpu-based terminal
 # cask "notion"
-cask "obs"
 # cask "postico"
 # cask "postman"
 # cask "protonvpn"
@@ -78,6 +180,7 @@ cask "session-manager-plugin"
 # cask "syncthing"
 # cask "visual-studio-code"
 cask "vlc"
+cask "xquartz"
 # cask "vscodium"
 # cask "zoom"
 cask "zotero" # no arm64_big_sur yet
@@ -99,9 +202,9 @@ mas "pages", id: 409201541
 # prior cask install list
 # ==> Formulae
 # adns
-# ansible
+brew "ansible"
 # aom
-# argocd
+brew "argocd"
 # aribb24
 # arm-gcc-bin@8
 # assimp
@@ -477,69 +580,69 @@ mas "pages", id: 409201541
 # audacity
 # aws-vault
 # balenaetcher
-# barrier
+cask "barrier"
 # beardedspice
 # betterdisplay
 # bitwarden
 # bria
 # caffeine
-# calibre
+cask "calibre"
 # cloudflare-warp
-# coconutbattery
+cask "coconutbattery"
 # cubicsdr
 # daisydisk
 # dexed
-# drivedx
-# firefox
-# flux
-# font-terminus
+cask "drivedx"
+cask "firefox"
+cask "flux"
+cask "font-terminus"
 # gcc-arm-embedded
 # gfxcardstatus
-# gimp
-# grandperspective
+cask "gimp"
+cask "grandperspective"
 # gswitch
-# handbrake
+cask "handbrake"
 # hashicorp-vagrant
 # jdiskreport
 # jitsi
 # keka
-# keybase
+cask "keybase"
 # kindlegen
 # krita
 # lastpass
-# linphone
-# lulu
+cask "linphone"
+cask "lulu"
 # macfuse
 # multipass
 # notunes
-# obs
+cask "obs"
 # ocenaudio
 # osxfuse
-# pacifist
+cask pacifist
 # paintbrush
-# pop
+cask pop
 # radio-silence
 # rember
 # schism-tracker
 # session-manager-plugin
-# signal
+cask "signal"
 # slack
 # soundflowerbed
-# steam
+cask "steam"
 # subler
 # teamviewer
-# telegram-desktop
-# tigervnc-viewer
+cask "telegram-desktop"
+cask "tigervnc-viewer"
 # transmission
 # tunnelblick
-# vagrant
-# vagrant-vmware-utility
+cask "vagrant"
+cask "vagrant-vmware-utility"
 # virtualbox
 # virtualbox-extension-pack
 # vlc
-# vmware-fusion
-# whatsapp
+cask "vmware-fusion"
+cask "whatsapp"
 # xquartz
-# yubico-authenticator
+cask "yubico-authenticator"
 # yujitach-menumeters
-# zoom
+cask "zoom"
