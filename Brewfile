@@ -1,19 +1,17 @@
 cask_args appdir: "/Applications", require_sha: true
 tap "homebrew/bundle"
 tap "homebrew/services"
-
+tap "zackelia/formulae"
 
 # autoconf
 # automake
 # awsume
 #
 
-brew "aldente"
 brew "awscli"
 brew "bash"
 brew "bash-completion"
 
-brew "bclm"
 brew "cmake"
 brew "coreutils"
 brew "curl"
@@ -222,7 +220,7 @@ brew "argocd"
 # bash
 # bash-completion
 # bazaar
-# bclm
+brew "bclm"
 # bdw-gc
 # boost
 # bootloadhid
@@ -568,11 +566,14 @@ brew "argocd"
 # zimg
 # zstd
 # zxing-cpp
-#
+
+
+
 # => Casks
 # 1password
 # 1password-cli
 # airy
+cask "aldente"
 # android-file-transfer
 # android-platform-tools
 # arduino
