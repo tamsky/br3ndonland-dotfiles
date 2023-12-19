@@ -94,7 +94,7 @@ cat > ~/Library/LaunchAgents/com.tamsky.KeyRemapping.plist <<EOF
 </plist>
 EOF
 
-echo restart/logout to enable keyboard modifier remappings
+printf "restart/logout to enable keyboard modifier remappings"
 
 ###############################################################################
 # Screen                                                                      #
