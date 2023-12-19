@@ -31,6 +31,9 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.menuextra.clock IsAnalog -bool false
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d h:mm a"
 
+# TODO(tamsky): test this setting, or convert to user mode
+# defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
+
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 # sudo systemsetup -settimezone "America/New_York" >/dev/null
 
@@ -129,7 +132,7 @@ chflags nohidden ~/Library
 ###############################################################################
 
 # Auto-hide menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "genie"
@@ -194,10 +197,10 @@ defaults write com.apple.dock show-recents -bool false
 # 12: Notification Center
 # 13: Lock screen
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom right screen corner → Mission Control
-defaults write com.apple.dock wvous-br-corner -int 2
+defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
 # Bottom left screen corner
 defaults write com.apple.dock wvous-bl-corner -int 0
@@ -265,10 +268,10 @@ if networksetup -listallnetworkservices | grep -q "Ethernet"; then
 fi
 
 # Configure Proton VPN
-defaults write ch.protonvpn.mac AutoConnect -bool true
-defaults write ch.protonvpn.mac StartMinimized -bool true
-defaults write ch.protonvpn.mac StartOnBoot -bool true
-defaults write ch.protonvpn.mac VpnAcceleratorEnabled -bool true
+# defaults write ch.protonvpn.mac AutoConnect -bool true
+# defaults write ch.protonvpn.mac StartMinimized -bool true
+# defaults write ch.protonvpn.mac StartOnBoot -bool true
+# defaults write ch.protonvpn.mac VpnAcceleratorEnabled -bool true
 
 ###############################################################################
 # TextEdit                                                                    #
