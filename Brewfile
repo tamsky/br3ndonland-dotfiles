@@ -610,6 +610,7 @@ cask "font-terminus"
 # gcc-arm-embedded
 # gfxcardstatus
 cask "gimp"
+cask "google-chrome"
 cask "grandperspective"
 # gswitch
 cask "handbrake"
