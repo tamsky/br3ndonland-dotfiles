@@ -646,8 +646,8 @@ cask "telegram-desktop"
 cask "tigervnc-viewer"
 # transmission
 # tunnelblick
-cask "vagrant"
-cask "vagrant-vmware-utility"
+cask "vagrant@2.4.0"
+cask "vagrant-vmware-utility"  # requires rosetta
 # virtualbox
 # virtualbox-extension-pack
 # vlc

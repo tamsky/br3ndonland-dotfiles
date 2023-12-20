@@ -354,6 +354,11 @@ else
     log "Installing software updates:"
     sudo_askpass softwareupdate --install --all
     check_xcode_license
+
+    if [[ $(uname -p) = "arm" ]] ; then
+      sudo_askpass /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    fi
+
   else
     log "Skipping software updates."
   fi
