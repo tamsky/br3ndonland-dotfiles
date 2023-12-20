@@ -50,7 +50,7 @@ symlink_repo_dotfiles() {
 #   done
 # }
 
-if symlink_repo_dotfiles && symlink_vscode_settings; then
+if symlink_repo_dotfiles; then  # (removed ''&& symlink_vscode_settings')
   echo "-> Symlinking successful. Finishing up..."
   chmod 700 "$HOME"/.gnupg
   chmod 600 "$HOME"/.gnupg/gpg.conf
