@@ -582,7 +582,7 @@ brew "bclm"
 # 1password
 # 1password-cli
 # airy
-cask "aeriel"
+cask "aerial"
 cask "aldente"
 # android-file-transfer
 # android-platform-tools
