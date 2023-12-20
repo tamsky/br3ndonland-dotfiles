@@ -12,6 +12,12 @@ if [ "${MACOS:-0}" -gt 0 ] || [ "$(uname)" = "Darwin" ]; then
   mkdir -p ~/.1password && ln -s \
     ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock \
     ~/.1password/agent.sock
+
+  # https://gist.github.com/sbailliez/2305d831ebcf56094fd432a8717bed93
+  # vmware 13 install steps
+  #
+  # vagrant plugin install vagrant-vmware-desktop
+
 else
   echo "Not macOS. Skipping macos.sh."
 fi
