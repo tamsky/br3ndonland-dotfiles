@@ -143,7 +143,7 @@ brew "tree-sitter"
 # brew "typescript"
 
 brew "unbound"
-brew "unrar"
+# brew "unrar" # not working/missing
 
 # TODO, re-eval:
 # brew "vncsnapshot"
@@ -161,7 +161,7 @@ brew "yamllint"
 brew "yq"
 brew "yt-dlp"
 brew "zeromq"
-brew "zxing-cpp"
+#brew "zxing-cpp" # missing
 #brew "zsh"
 #brew "zsh-completions"
 #brew "zsh-syntax-highlighting"
