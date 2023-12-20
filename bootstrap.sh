@@ -336,8 +336,8 @@ configure_git() {
     else
       log "Skipping Git credential setup."
     fi
-    logk
   fi
+  logk
 }
 
 # The first call to `configure_git` is needed for cloning the dotfiles repo.
