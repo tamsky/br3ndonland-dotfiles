@@ -49,7 +49,7 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
 [github]
-user = mtamsky
+user = tamsky
 [gpg]
 format = ssh
 [gpg "ssh"]
