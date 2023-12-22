@@ -1,0 +1,221 @@
+!
+!      XTERM RESOURCES
+!      <URL:http://www.in-ulm.de/~mascheck/X11/XTerm>
+
+! XTerm*font: -*-lucidatypewriter-medium-*-*-*-12-*-*-*-*-*-iso8859-*
+! XTerm*font1: -*-*-*-*-*-*-2-*-*-*-*-*-*-*
+! XTerm*font2: -misc-fixed-*-r-normal-*-8-*-*-*-*-*-iso8859-*
+! XTerm*font3: -b&h-lucidatypewriter-bold-*-*-*-12-*-*-*-*-*-*-*
+! XTerm*font4: -*-screen-bold-r-normal-*-16-*-*-*-*-*-iso8859-*
+! XTerm*font5: -*-lucidatypewriter-medium-*-*-*-18-*-*-*-*-*-*-*
+! XTerm*font6: -*-lucidatypewriter-medium-*-*-*-20-*-*-*-*-*-*-*
+! XTerm*font7: -dec-terminal-bold-r-normal-*-14-*-*-*-*-*-iso8859-*
+
+! possibly my attempts:
+! XTerm*font5: -*-courier-medium-r-normal-*-*-240-*-*-*-*-iso8859-1
+! XTerm*font6:-*-courier-medium-r-normal-*-34-*-*-*-*-*-iso8859-1
+! XTerm*font7: -*-*-*-r-*-*-34-*-*-*-*-*-*-*
+
+! these look better as truetype fonts:
+!XTerm*font6: -*-lucidatypewriter-medium-*-*-*-24-*-*-*-*-*-iso8859-1
+!XTerm*font7: -*-lucidatypewriter-medium-*-*-*-34-*-*-*-*-*-iso8859-1
+
+! renderFont controls whether trueType mode is enabled at startup, or manual.
+XTerm*renderFont: true
+!XTerm*renderFont: false
+
+! The following have an extra mark on the zero(0) glyph:
+
+! PT Mono (28x98) (has ->, 0 is slashed)
+! XTerm*faceName: PT Mono
+
+! Monaco (25x98)  (has -> glyph, 0 is slashed)
+! XTerm*faceName: Monaco
+
+! Andale Mono (28x98) (has -> glyph, 0 is dotted)
+! XTerm*faceName: Andale Mono
+
+! Menlo (27x98) (has -> glyph, 0 is slashed)
+! XTerm*faceName: Menlo
+
+! ##########################
+! ### PREVIOUS FAVORITE: ###
+! ##########################
+! Inconsolata (30x116) (missing -> glyph, 0 is slashed)
+!XTerm*faceName: Inconsolata
+
+! ####################
+! ### TESTING NEW: ###
+! ####################
+XTerm*faceName: Pragmata Pro Mono
+XTerm*scaleHeight: 1.01
+
+! Monoid (23x88) (has ->, 0 is slashed)
+! XTerm*faceName: Monoid
+
+! Envy Code R (27x111) (has ->, 0 is slashed)
+! XTerm*faceName: Envy Code R
+
+! M+ 1m (29x121) (missing ->, 0 slashed)
+! XTerm*faceName: M+ 1m
+
+XTerm*faceSize1: 6
+XTerm*faceSize2: 12
+XTerm*faceSize3: 14
+XTerm*faceSize4: 18
+XTerm*faceSize5: 24
+XTerm*faceSize6: 32
+
+
+XTerm*loginShell:               true
+XTerm*cursorColor:              green
+! blue => orange , magenta->green
+
+! This specifies whether xterm will run in UTF-8 mode.
+! If you set this resource, xterm also sets the 'wideChars' resource
+! as a side-effect.  Option values: false(0)*/true(1)*/always(2)/default(3)*
+! * Escape sequences for turning UTF-8 mode on/off are allowed in this mode.
+XTerm*utf8: always
+
+XTerm*metaSendsEscape:   true
+! with metaSendsEscape = true
+! eightBitInput=false causes xterm, at startup, to set 7-bit line discipline
+! XTerm*eightBitInput:            false
+! eightBitInput=true causes xterm, at startup, to set 8-bit line discipline
+XTerm*eightBitInput:            true
+
+! testing Alt_L key activation
+! <add notes here>
+
+! Allow 8-bit characters from host to be displayed as-is
+XTerm*eightBitOutput:  true
+
+
+! http://www.tldp.org/HOWTO/Keyboard-and-Console-HOWTO-5.html
+! send delete(127) when using the <BackSpace> key
+XTerm.vt100.backarrowKey:       false
+XTerm.vt100.reverseVideo:       false
+!XTerm.vt100.foreground:         yellow
+!XTerm.vt100.background:         black
+XTerm.vt100.saveLines:          1023
+XTerm.vt100.scrollBar:          false
+XTerm.vt100.deleteIsDEL:        false
+XTerm.vt100.visualBell:         true
+XTerm.vt100.popOnBell:          true
+
+XTerm*charClass: \
+  33:48,36-38:48,43-47:48,58:48,61:48,63-64:48,126:48
+!  !    $ % &    +,-./    :     =     ? @      ~
+
+! If you are unable to use stty...
+!
+! XTerm*ttymodes: erase ^? kill ^U intr ^C quit ^\ eof ^D \
+!                susp ^Z start ^Q stop ^S eol undef eol2 undef
+
+XTerm*VT100.Translations: #override \
+~Shift <KeyPress> Help: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+Shift <KeyPress> Help: insert-selection(PRIMARY, CLIPBOARD,CUT_BUFFER0) \n\
+~Ctrl ~Meta <Btn2Up>: insert-selection(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+ <BtnUp>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+Meta <Key> minus:           smaller-vt-font() \n\
+Meta <Key> KP_Subtract:     smaller-vt-font() \n\
+Meta <Key> plus:            larger-vt-font() \n\
+Meta <Key> KP_Add:          larger-vt-font() \n\
+Ctrl Shift <Key>H: set-altscreen(toggle) \n\
+Alt <Key> 1: string("`1") \n\
+Alt <Key> 2: string("`2") \n\
+Alt <Key> 3: string("`3") \n\
+Alt <Key> 4: string("`4") \n\
+Alt <Key> 5: string("`5") \n\
+Alt <Key> 6: string("`6") \n\
+Alt <Key> 7: string("`7") \n\
+Alt <Key> 8: string("`8") \n\
+Alt <Key> 9: string("`9") \n\
+Alt <Key> 0: string("`0") \n\
+
+
+!select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+
+!
+!<Btn2Down>: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+!<KeyPress> Help: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+!Shift <KeyPress> Help: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+!
+
+
+
+! default bindings in XTerm-131
+! to get an idea:
+!
+!	   Shift <KeyPress> Prior:scroll-back(1,halfpage) \n\
+!	    Shift <KeyPress> Next:scroll-forw(1,halfpage) \n\
+!	  Shift <KeyPress> Select:select-cursor-start() \
+!				  select-cursor-end(PRIMARY, CUT_BUFFER0) \n\
+!	  Shift <KeyPress> Insert:insert-selection(PRIMARY, CUT_BUFFER0) \n\
+!
+!		    ~Meta <KeyPress>:insert-seven-bit() \n\
+!		     Meta <KeyPress>:insert-eight-bit() \n\
+!		    !Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+!	       !Lock Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+!    !Lock Ctrl @Num_Lock <Btn1Down>:popup-menu(mainMenu) \n\
+! 	 ! @Num_Lock Ctrl <Btn1Down>:popup-menu(mainMenu) \n\
+!		    ~Meta <Btn1Down>:select-start() \n\
+!		  ~Meta <Btn1Motion>:select-extend() \n\
+!		    !Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+!	       !Lock Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+!    !Lock Ctrl @Num_Lock <Btn2Down>:popup-menu(vtMenu) \n\
+!	 ! @Num_Lock Ctrl <Btn2Down>:popup-menu(vtMenu) \n\
+!	      ~Ctrl ~Meta <Btn2Down>:ignore() \n\
+!		     Meta <Btn2Down>:clear-saved-lines() \n\
+!		~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
+!		    !Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+!	       !Lock Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+!    !Lock Ctrl @Num_Lock <Btn3Down>:popup-menu(fontMenu) \n\
+!	 ! @Num_Lock Ctrl <Btn3Down>:popup-menu(fontMenu) \n\
+!	      ~Ctrl ~Meta <Btn3Down>:start-extend() \n\
+!		  ~Meta <Btn3Motion>:select-extend() \n\
+!		     Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+!		Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+!     Lock @Num_Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+!	   @Num_Lock Ctrl <Btn4Down>:scroll-back(1,halfpage,m) \n\
+!			  <Btn4Down>:scroll-back(5,line,m)     \n\
+!		     Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+!		Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+!     Lock @Num_Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+!	   @Num_Lock Ctrl <Btn5Down>:scroll-forw(1,halfpage,m) \n\
+!			  <Btn5Down>:scroll-forw(5,line,m)     \n\
+!			     <BtnUp>:select-end(PRIMARY, CUT_BUFFER0) \n\
+!			   <BtnDown>:bell(0)
+!------------------------------------------------------------
+
+
+! from https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+
+! Dracula Xresources palette
+! via https://github.com/dracula/xresources.git
+*.foreground: #FFFFFF
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
