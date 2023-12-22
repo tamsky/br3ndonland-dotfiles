@@ -8,6 +8,7 @@
 - open sans (10 fonts)
   - 300, 300italic, italic, regular, 600italic, 600, 700italic, 700, 800italic, 800
 
+*** https://fonts.google.com/specimen/Slabo+27px
 - Slabo (1 font); 27px regular
 
 - Lato (10 fonts)
