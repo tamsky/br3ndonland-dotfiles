@@ -71,11 +71,15 @@ XTerm*loginShell:               true
 XTerm*cursorColor:              green
 ! blue => orange , magenta->green
 
+
+! Disable XTERM_LOCALE and LC_ALL, LC_CTYPE, or LANG, this allows us to manually enable UTF8 next.
+XTerm*locale: false
+
 ! This specifies whether xterm will run in UTF-8 mode.
 ! If you set this resource, xterm also sets the 'wideChars' resource
 ! as a side-effect.  Option values: false(0)*/true(1)*/always(2)/default(3)*
 ! * Escape sequences for turning UTF-8 mode on/off are allowed in this mode.
-XTerm*utf8: always
+XTerm*utf8: true
 XTerm*utf8Fonts: true
 XTerm*utf8Title: true
 
