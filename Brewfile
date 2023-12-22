@@ -326,6 +326,7 @@ brew "bclm"
 # ilmbase
 # imagemagick
 # imath
+brew "font-inconsolata"
 # inetutils
 # isl
 # ispell
@@ -639,7 +640,9 @@ cask "pop"
 # session-manager-plugin
 cask "signal"
 # slack
-# soundflowerbed
+cask "soundflower"
+cask "soundflowerbed"
+cask "skyfonts"
 cask "steam"
 # subler
 # teamviewer
