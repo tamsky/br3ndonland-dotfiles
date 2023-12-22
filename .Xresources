@@ -76,6 +76,7 @@ XTerm*cursorColor:              green
 ! as a side-effect.  Option values: false(0)*/true(1)*/always(2)/default(3)*
 ! * Escape sequences for turning UTF-8 mode on/off are allowed in this mode.
 XTerm*utf8: always
+XTerm*eightBitControl: false
 
 XTerm*metaSendsEscape:   true
 ! with metaSendsEscape = true
