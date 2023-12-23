@@ -118,8 +118,10 @@ XTerm*charClass: \
 
 ! If you are unable to use stty...
 !
+! M1/arm Sonoma (2023) with XQuartz 2.8.5 has 'erase ^H' as a default?
+!
 ! XTerm*ttymodes: erase ^? kill ^U intr ^C quit ^\ eof ^D \
-!                susp ^Z start ^Q stop ^S eol undef eol2 undef
+!                 susp ^Z start ^Q stop ^S eol undef eol2 undef
 
 XTerm*VT100.Translations: #override \
 ~Shift <KeyPress> Help: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
