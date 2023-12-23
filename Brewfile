@@ -510,7 +510,7 @@ brew "font-inconsolata"
 # rustup-init
 # rxvt-unicode
 # scrcpy
-# screen
+brew "screen"
 # screenresolution
 # sdl2
 # sdl2_image
