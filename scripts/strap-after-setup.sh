@@ -35,6 +35,14 @@ fi
 #   "$HOME"/.dotfiles/scripts/vscode-extensions.sh "$i"
 # done
 
+### Install pinned mercurial version
+pip3 install mercurial==6.5.1
+
+# works with:
+# ( cd ~/src/dev.heptapod.net/mercurial/hg-git/hggit ; hg sum )
+# parent: 2075:162f2ee771d9 tip
+# branching: merge branch 1.0.x into default
+
 ### Set shell
 if ! [[ $SHELL =~ "bash" ]] && command -v bash &>/dev/null; then
   echo "--> Changing shell to bash. Password entry required."

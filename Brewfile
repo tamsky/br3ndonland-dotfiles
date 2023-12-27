@@ -76,7 +76,7 @@ brew "media-info"
 #brew "mp4v2"
 brew "m4"
 brew "make"
-brew "mercurial"
+#brew "mercurial" -- use PIP instead
 brew "mtr"
 brew "nmap"
 
