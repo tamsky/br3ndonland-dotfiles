@@ -1,4 +1,6 @@
+# documentation and
 # starship configuration: https://starship.rs/config/
+#
 command_timeout = 5000
 
 [battery]
@@ -6,9 +8,11 @@ disabled = true
 
 [nodejs]
 format = "via [node.js ($version )]($style)"
+disabled = true
 
 [python]
 python_binary = "python3"
+disabled = true
 
 [shell]
 bash_indicator = "bash "
@@ -17,3 +21,8 @@ format = "[$indicator]($style)"
 style = "cyan bold"
 unknown_indicator = "??? "
 zsh_indicator = ""
+
+[hg_branch]
+#truncation_length = 36
+truncation_symbol = '…'
+disabled = false
