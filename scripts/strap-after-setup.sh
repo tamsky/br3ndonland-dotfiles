@@ -23,12 +23,12 @@ else
 fi
 
 ### Install Hatch
-if command -v pipx &>/dev/null && ! command -v hatch &>/dev/null; then
-  echo "Installing Hatch with pipx."
-  pipx install "hatch>=1,<2"
-else
-  echo "Skipping Hatch install."
-fi
+# if command -v pipx &>/dev/null && ! command -v hatch &>/dev/null; then
+#   echo "Installing Hatch with pipx."
+#   pipx install "hatch>=1,<2"
+# else
+#   echo "Skipping Hatch install."
+# fi
 
 # ### Install VSCode extensions
 # for i in {code,code-exploration,code-insiders,code-server,codium}; do
