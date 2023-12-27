@@ -35,3 +35,9 @@ alias python='python3'
 
 ### prompt: https://starship.rs
 eval "$(starship init bash)"
+
+### Sonoma-ism?
+stty erase 
+
+### instruct UNIX programs that our terminal is UTF-8
+export LC_ALL=en_US.UTF-8
