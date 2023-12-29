@@ -23,7 +23,7 @@ brew "bash"
 brew "bash-completion"
 
 brew "cmake"
-brew "coreutils"
+brew "coreutils"  # required for DOOM
 brew "curl"
 # brew "direnv"
 
@@ -32,6 +32,7 @@ brew "curl"
 brew "eksctl"
 brew "emacs"
 brew "exiftool"
+brew "fd"   # required for DOOM
 brew "figlet"
 brew "findutils"
 
@@ -502,7 +503,7 @@ brew "font-inconsolata"
 # rav1e
 # rclone
 # readline
-# ripgrep
+brew "ripgrep"  # required for DOOM
 # rtmpdump
 # rubberband
 # ruby

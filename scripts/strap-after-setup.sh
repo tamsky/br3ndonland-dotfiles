@@ -52,3 +52,11 @@ if ! [[ $SHELL =~ "bash" ]] && command -v bash &>/dev/null; then
 else
   echo "Shell is already set to Bash."
 fi
+
+### Set doom
+if ! [[ -d $HOME/.config/emacs ]] 
+  echo "--> Checking out DOOM emacs source."
+  cd $HOME/.config
+  hg clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
+fi
+PATH=$HOME/.config/emacs/bin:$PATH
