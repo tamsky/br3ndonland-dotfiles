@@ -12,6 +12,7 @@ tap "cloudflare/cloudflare"
 tap "homebrew/cask-fonts"
 #tap "wallix/awless"
 
+tap "d12frosted/emacs-plus"
 
 # autoconf
 # automake
@@ -30,7 +31,8 @@ brew "curl"
 #brew "black", restart_service: :changed
 
 brew "eksctl"
-brew "emacs"
+#brew "emacs"
+brew "emacs-plus"
 brew "exiftool"
 brew "fd"   # required for DOOM
 brew "figlet"
