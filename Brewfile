@@ -173,8 +173,8 @@ brew "zeromq"
 #brew "zsh-syntax-highlighting"
 
 
-cask "1password"
-cask "1password-cli"
+cask "1password", args: { appdir: "/Applications" }
+cask "1password-cli", args: { appdir: "/Applications" }
 # cask "brave-browser"
 # cask "datagrip"
 # cask "docker"
@@ -649,7 +649,7 @@ cask "signal"
 # slack
 cask "soundflower"
 cask "soundflowerbed"
-cask "skyfonts"
+#cask "skyfonts"
 cask "steam"
 # subler
 # teamviewer
