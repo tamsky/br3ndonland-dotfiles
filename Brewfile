@@ -657,12 +657,12 @@ cask "telegram-desktop"
 cask "tigervnc-viewer"
 # transmission
 # tunnelblick
-cask "vagrant@2.4.0"
-cask "vagrant-vmware-utility"  # requires rosetta
+cask "vagrant" # @ 2.4.0
 # virtualbox
 # virtualbox-extension-pack
 # vlc
 cask "vmware-fusion"
+# cask "vagrant-vmware-utility"  # requires rosetta
 cask "whatsapp"
 # xquartz
 cask "yubico-authenticator"
