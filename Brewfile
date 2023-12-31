@@ -1,3 +1,5 @@
+# -*- text -*-
+
 cask_args appdir: "/Applications", require_sha: true
 
 #
@@ -32,7 +34,8 @@ brew "curl"
 
 brew "eksctl"
 #brew "emacs"
-brew "emacs-plus"
+brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-native-comp"]
+
 brew "exiftool"
 brew "fd"   # required for DOOM
 brew "figlet"
@@ -172,10 +175,10 @@ brew "zeromq"
 
 cask "1password"
 cask "1password-cli"
-cask "brave-browser"
+# cask "brave-browser"
 # cask "datagrip"
-cask "docker"
-cask "firefox"
+# cask "docker"
+# cask "firefox"
 cask "iina"
 # cask "inkscape"
 # cask "karabiner-elements"
@@ -329,7 +332,6 @@ brew "bclm"
 # ilmbase
 # imagemagick
 # imath
-brew "font-inconsolata"
 # inetutils
 # isl
 # ispell
@@ -611,6 +613,7 @@ cask "drivedx"
 cask "firefox"
 cask "flux"
 cask "font-terminus"
+cask "font-inconsolata"
 # gcc-arm-embedded
 # gfxcardstatus
 cask "gimp"
@@ -632,6 +635,7 @@ cask "lulu"
 # multipass
 # notunes
 cask "obs"
+cask "obsidian"
 # ocenaudio
 # osxfuse
 cask "pacifist"
