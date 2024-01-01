@@ -47,8 +47,13 @@ if [[ -d $HOMEBREW_PREFIX ]]; then
   eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 fi
 
-### aliases
+#########################
+### aliases/functions ###
+#########################
+
 alias python='python3'
+
+function ec () { emacsclient -nw "$@" ; }
 
 #################################
 # history_logger() side effects:
