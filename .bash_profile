@@ -6,10 +6,16 @@
 #
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-        [ -r "$file"  ] && [ -f "$file"  ] && source "$file";
-        done;
-        unset file;
+
+for _file in ~/.{functions}; do
+  [ -r "$_file" ] && [ -f "$_file" ] && source "$_file";
+done
+unset _file
+
+# for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+#         [ -r "$file"  ] && [ -f "$file"  ] && source "$file";
+#         done;
+#         unset file;
 
 ### options
 HISTCONTROL=ignoreboth
@@ -87,4 +93,6 @@ export LC_ALL=en_US.UTF-8
 
 # because we run after exports, we need to cleanup PATH again here:
 # Cleanup
-export PATH=$( printf "$PATH" | tr : '\n' | dedup_input | tr '\n' : )
+if [ $(type -t dedup_input) ] ; then
+  export PATH=$( printf "$PATH" | tr : '\n' | dedup_input | tr '\n' : )
+fi
