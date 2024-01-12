@@ -36,6 +36,7 @@ STDIN_FILE_DESCRIPTOR=0
 STRAP_GIT_NAME=${STRAP_GIT_NAME:?Variable not set}
 STRAP_GIT_EMAIL=${STRAP_GIT_EMAIL:?Variable not set}
 STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="tamsky"}
+FOUND_EMAIL=${FOUND_EMAIL:=${STRAP_GITHUB_USER}}
 DEFAULT_DOTFILES_URL="https://github.com/$STRAP_GITHUB_USER/dotfiles"
 STRAP_DOTFILES_URL=${STRAP_DOTFILES_URL:="$DEFAULT_DOTFILES_URL"}
 STRAP_DOTFILES_BRANCH=${STRAP_DOTFILES_BRANCH:="main"}
@@ -226,7 +227,7 @@ if [ "$MACOS" -gt 0 ]; then
     /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2>/dev/null
   if [ -n "$STRAP_GIT_NAME" ] && [ -n "$STRAP_GIT_EMAIL" ]; then
     FOUND="Found this computer? Please contact"
-    LOGIN_TEXT=$(escape "$FOUND $STRAP_GIT_NAME at $STRAP_GIT_EMAIL.")
+    LOGIN_TEXT=$(escape "$FOUND $STRAP_GIT_NAME at $FOUND_EMAIL.")
     echo "$LOGIN_TEXT" | grep -q '[()]' && LOGIN_TEXT="'$LOGIN_TEXT'"
     sudo_askpass defaults write \
       /Library/Preferences/com.apple.loginwindow LoginwindowText "$LOGIN_TEXT"
