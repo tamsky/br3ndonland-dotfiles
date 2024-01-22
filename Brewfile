@@ -604,6 +604,7 @@ cask "barrier"
 # bria
 # caffeine
 cask "calibre"
+cask "cloudflared"
 # cloudflare-warp
 cask "coconutbattery"
 # cubicsdr
