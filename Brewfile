@@ -605,7 +605,7 @@ cask "barrier"
 # caffeine
 cask "calibre"
 cask "cloudflared"
-# cloudflare-warp
+cask "cloudflare-warp"
 cask "coconutbattery"
 # cubicsdr
 # daisydisk
