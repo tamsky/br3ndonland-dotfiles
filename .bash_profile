@@ -91,6 +91,7 @@ function history_logger() {
 # by setting this before calling starship, it will call our command as well.
 #
 export PROMPT_COMMAND=history_logger
+export PROMPT_COMMAND="history_logger ; ( ( ~/bin/prompt_lite.sh & ) )"
 eval "$(starship init bash)"
 
 ### MacOS or Sonoma-ism?
