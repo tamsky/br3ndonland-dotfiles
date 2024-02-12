@@ -153,7 +153,7 @@ brew "unbound"
 
 # TODO, re-eval:
 # brew "vncsnapshot"
-# brew "wakatime-cli"
+brew "wakatime-cli"
 
 brew "wget"
 # brew "wrangler"
