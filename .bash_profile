@@ -90,7 +90,7 @@ export PROMPT_COMMAND=history_logger
 ### prompt: https://starship.rs
 eval "$(starship init bash)"
 
-### Sonoma-ism?
+### MacOS or Sonoma-ism?
 stty erase 
 
 ### instruct UNIX programs that our terminal is UTF-8
