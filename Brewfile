@@ -634,7 +634,7 @@ cask "linphone"
 cask "lulu"
 # macfuse
 # multipass
-# notunes
+cask "notunes"
 cask "obs"
 cask "obsidian"
 # ocenaudio
