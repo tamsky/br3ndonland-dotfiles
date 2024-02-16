@@ -1,2 +1,2 @@
-caption splitonly
-bind \044 source $HOME/.screenrc-caption1
+caption always '%{= yd}%h%{-} %=%0`'
+bind \044 source $HOME/.screenrc-caption3

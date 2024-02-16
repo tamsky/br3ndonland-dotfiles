@@ -75,5 +75,5 @@ bind \043 source $HOME/.screenrc-hardstatus1
 #                yellow host   whie window  fill right -> backtick
 
 #caption always '%{= yd}%h%{-} %{= wd}%t%{-} %=%0`'
-caption always '%{= yd}%h%{-} %=%0`'
-bind \044 source $HOME/.screenrc-caption2
+caption splitonly
+bind \044 source $HOME/.screenrc-caption1
