@@ -130,6 +130,7 @@ brew "python@3.12"
 brew "r"
 brew "rclone"
 brew "rust"
+# brew "sabnzbd" - investigating
 brew "shellcheck"
 brew "shfmt"
 brew "socat"
