@@ -238,6 +238,7 @@ brew "argocd"
 # bazaar
 brew "bclm"
 # bdw-gc
+brew "blackhole-2ch"
 # boost
 # bootloadhid
 # brotli
@@ -649,7 +650,7 @@ cask "pop"
 # session-manager-plugin
 cask "signal"
 # slack
-cask "soundflower"
+#cask "soundflower"  -- blackhole (non-cask) is the new soundflower
 cask "soundflowerbed"
 #cask "skyfonts"
 cask "steam"
