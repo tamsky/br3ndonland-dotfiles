@@ -15,9 +15,16 @@ defaults read >"$HOME/Desktop/macos-defaults-$now.txt"
 
 # Enable dark mode
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
-defaults write NSGlobalDomain AppleAccentColor -string "-1"
-defaults write NSGlobalDomain AppleHighlightColor -string \
-  "0.847059 0.847059 0.862745 Graphite"
+#defaults write NSGlobalDomain AppleAccentColor -string "-1"
+#defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.862745 Graphite"
+
+# via:
+# - https://georgegarside.com/blog/macos/imac-m1-accent-colours-any-mac/
+# 3=yellow, 4=green, 5=blue, 6=pink, 7=purple, 8=orange
+#
+# Enables M1 iMac hardware highlight colors
+defaults write NSGlobalDomain NSColorSimulateHardwareAccent -bool YES
+defaults write NSGlobalDomain NSColorSimulatedHardwareEnclosureNumber -int 7
 
 # Use metric units
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
