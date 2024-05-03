@@ -399,11 +399,18 @@ strap_dotfiles_branch_name="${STRAP_DOTFILES_BRANCH##*/}"
 log "Checking out $strap_dotfiles_branch_name in ~/.dotfiles."
 # shellcheck disable=SC2086
 (
-  cd ~/.dotfiles
-  git stash
-  git fetch $Q
-  git checkout "$strap_dotfiles_branch_name"
-  git pull $Q --rebase --autostash
+  if [ -n "$USE_MERCURIAL" ]; then
+    cd ~/.dotfiles
+    git stash
+    git fetch $Q
+    git checkout "$strap_dotfiles_branch_name"
+    git pull $Q --rebase --autostash
+  else
+    cd ~/.dotfiles
+    hg shelve
+    hg pull $Q
+    hg checkout "$strap_dotfiles_branch_name"
+  fi
 )
 run_dotfile_scripts scripts/symlink.sh
 logk
