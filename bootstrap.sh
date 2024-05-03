@@ -408,7 +408,7 @@ log "Checking out $strap_dotfiles_branch_name in ~/.dotfiles."
     git pull $Q --rebase --autostash
   else
     cd ~/.dotfiles
-    ${HG_BIN} shelve
+    ${HG_BIN} shelve || true
     ${HG_BIN} pull $Q
     ${HG_BIN} checkout "$strap_dotfiles_branch_name"
   fi
