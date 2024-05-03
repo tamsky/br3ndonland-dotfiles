@@ -54,7 +54,7 @@ else
 fi
 
 ### Set doom
-if ! [[ -d $HOME/.config/emacs ]] 
+if ! [[ -d $HOME/.config/emacs ]]; then
   echo "--> Checking out DOOM emacs source."
   cd $HOME/.config
   hg clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
