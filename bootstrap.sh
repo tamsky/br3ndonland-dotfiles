@@ -308,8 +308,9 @@ configure_hg() {
   logn "Configuring Mercurial"
   pip3 install mercurial hg-git
   PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
-  ${PYTHON_SITE_PACKAGES_PATH}/bin/hg version
-  if [ -n $(${SITE_PACKAGES_PATH}/bin/hg config | grep extensions.hggit) ] ; then
+  HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
+  ${HG_BIN} version
+  if [ -n $(${PYTHON_SITE_PACKAGES_PATH}/bin/hg config | grep extensions.hggit) ] ; then
     echo "hg-git extension is not yet configured... "
     echo "please add 'hggit=' to your ~/.hgrc under [extensions]"
     echo "and run bootstrap again."
@@ -354,7 +355,7 @@ configure_git() {
   logk
 }
 
-# The first call to `configure_hg` is needed to verify hg-git extension is working.
+# The first call to `configure_hg` is needed to verify hg-git extension is working, and set HG_BIN
 configure_hg
 
 # The first call to `configure_git` is needed before cloning the dotfiles repo.
@@ -392,7 +393,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
   if [ -n "$USE_MERCURIAL" ]; then
     git clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
   else
-    ${PYTHON_SITE_PACKAGES}/bin/hg clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
+    ${HG_BIN} clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
   fi
 fi
 strap_dotfiles_branch_name="${STRAP_DOTFILES_BRANCH##*/}"
@@ -407,9 +408,9 @@ log "Checking out $strap_dotfiles_branch_name in ~/.dotfiles."
     git pull $Q --rebase --autostash
   else
     cd ~/.dotfiles
-    hg shelve
-    hg pull $Q
-    hg checkout "$strap_dotfiles_branch_name"
+    ${HG_BIN} shelve
+    ${HG_BIN} pull $Q
+    ${HG_BIN} checkout "$strap_dotfiles_branch_name"
   fi
 )
 run_dotfile_scripts scripts/symlink.sh
