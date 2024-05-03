@@ -37,7 +37,7 @@ STRAP_GIT_NAME=${STRAP_GIT_NAME:?Variable not set}
 STRAP_GIT_EMAIL=${STRAP_GIT_EMAIL:?Variable not set}
 STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="tamsky"}
 FOUND_EMAIL=${FOUND_EMAIL:=${STRAP_GITHUB_USER}}
-DEFAULT_DOTFILES_URL="https://github.com/$STRAP_GITHUB_USER/dotfiles"
+DEFAULT_DOTFILES_URL="https://github.com/$STRAP_GITHUB_USER/br3ndonland-dotfiles"
 STRAP_DOTFILES_URL=${STRAP_DOTFILES_URL:="$DEFAULT_DOTFILES_URL"}
 STRAP_DOTFILES_BRANCH=${STRAP_DOTFILES_BRANCH:="main"}
 STRAP_SUCCESS=""
@@ -304,6 +304,19 @@ else
   log "Not macOS. Xcode CLT install and license check skipped."
 fi
 
+configure_hg() {
+  logn "Configuring Mercurial"
+  pip3 install mercurial hg-git
+  PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
+  ${PYTHON_SITE_PACKAGES_PATH}/bin/hg version
+  if [ -n $(${SITE_PACKAGES_PATH}/bin/hg config | grep extensions.hggit) ] ; then
+    echo "hg-git extension is not yet configured... "
+    echo "please add 'hggit=' to your ~/.hgrc under [extensions]"
+    echo "and run bootstrap again."
+    exit 1
+  fi
+}
+
 configure_git() {
   logn "Configuring Git:"
   if [ "$STRAP_CI" -gt 0 ]; then
@@ -341,7 +354,10 @@ configure_git() {
   logk
 }
 
-# The first call to `configure_git` is needed for cloning the dotfiles repo.
+# The first call to `configure_hg` is needed to verify hg-git extension is working.
+configure_hg
+
+# The first call to `configure_git` is needed before cloning the dotfiles repo.
 configure_git
 
 # Check for and install any remaining software updates
@@ -373,7 +389,11 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     abort "Please set STRAP_DOTFILES_URL and STRAP_DOTFILES_BRANCH."
   fi
   log "Cloning $STRAP_DOTFILES_URL to ~/.dotfiles."
-  git clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
+  if [ -n "$USE_MERCURIAL" ]; then
+    git clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
+  else
+    ${PYTHON_SITE_PACKAGES}/bin/hg clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
+  fi
 fi
 strap_dotfiles_branch_name="${STRAP_DOTFILES_BRANCH##*/}"
 log "Checking out $strap_dotfiles_branch_name in ~/.dotfiles."
