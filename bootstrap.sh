@@ -390,7 +390,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     abort "Please set STRAP_DOTFILES_URL and STRAP_DOTFILES_BRANCH."
   fi
   log "Cloning $STRAP_DOTFILES_URL to ~/.dotfiles."
-  if [ -n "$USE_MERCURIAL" ]; then
+  if [ -z "$USE_MERCURIAL" ]; then
     git clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
   else
     ${HG_BIN} clone $Q "$STRAP_DOTFILES_URL" ~/.dotfiles
@@ -400,7 +400,7 @@ strap_dotfiles_branch_name="${STRAP_DOTFILES_BRANCH##*/}"
 log "Checking out $strap_dotfiles_branch_name in ~/.dotfiles."
 # shellcheck disable=SC2086
 (
-  if [ -n "$USE_MERCURIAL" ]; then
+  if [ -z "$USE_MERCURIAL" ]; then
     cd ~/.dotfiles
     git stash
     git fetch $Q
