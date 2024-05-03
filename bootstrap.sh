@@ -310,7 +310,7 @@ configure_hg() {
   PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
   HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
   ${HG_BIN} version
-  if [ -n $(${PYTHON_SITE_PACKAGES_PATH}/bin/hg config | grep extensions.hggit) ] ; then
+  if [ -n $(${HG_BIN} config | grep extensions.hggit) ] ; then
     echo "hg-git extension is not yet configured... "
     echo "please add 'hggit=' to your ~/.hgrc under [extensions]"
     echo "and run bootstrap again."
