@@ -56,7 +56,16 @@ fi
 ### Set doom
 if ! [[ -d $HOME/.config/emacs ]]; then
   echo "--> Checking out DOOM emacs source."
-  cd $HOME/.config
-  hg clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
+  (
+    cd $HOME/.config
+    hg clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
+  )
 fi
 PATH=$HOME/.config/emacs/bin:$PATH
+
+echo "--> Don't forget to run 'doom sync'"
+
+if [ ! -d $HOME/bin ]; then
+    mkdir $HOME/bin
+fi
+cp -v ~/.dotfiles/bin/* ~/bin/
