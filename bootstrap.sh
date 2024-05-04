@@ -306,7 +306,9 @@ fi
 
 configure_hg() {
   logn "Configuring Mercurial"
-  pip3 install mercurial hg-git
+  if [ -z $(hg version) ]; then
+    pip3 install mercurial hg-git
+  fi
   PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
   HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
   ${HG_BIN} version
