@@ -306,11 +306,16 @@ fi
 
 configure_hg() {
   logn "Configuring Mercurial"
-  if [ -z $(hg version) ]; then
-    pip3 install mercurial hg-git
+  if [ -z $(type -a brew >/dev/null) ]; then
+    if [ -z $(type -a hg >/dev/null) ]; then
+      pip3 install mercurial hg-git
+      PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
+      HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
+    fi
+  else
+    HG_BIN="hg"
   fi
-  PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
-  HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
+
   ${HG_BIN} version
   if [ -z $(${HG_BIN} config | grep extensions.hggit) ] ; then
     echo "hg-git extension is not yet configured... "
