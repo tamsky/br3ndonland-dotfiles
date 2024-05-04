@@ -306,8 +306,8 @@ fi
 
 configure_hg() {
   logn "Configuring Mercurial"
-  if [ -z $(type -p brew >/dev/null) ]; then
-    if [ -z $(type -p hg >/dev/null) ]; then
+  if [ -z "$(type -p brew 2>/dev/null)" ]; then
+    if [ -z "$(type -p hg 2>/dev/null)" ]; then
       pip3 install mercurial hg-git
       PYTHON_SITE_PACKAGES_PATH=$(python3 -m site | grep USER_BASE | cut -f2 -d\')
       HG_BIN="${PYTHON_SITE_PACKAGES_PATH}/bin/hg"
