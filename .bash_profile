@@ -47,6 +47,11 @@ if [[ -d $HOMEBREW_PREFIX ]]; then
   eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 fi
 
+### if doom is checked out, add it to our PATH
+if [[ -d $HOME/.config/emacs/bin ]]; then
+  PATH=$HOME/.config/emacs/bin:$PATH
+fi
+
 #########################
 ### aliases/functions ###
 #########################
