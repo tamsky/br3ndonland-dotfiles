@@ -4,6 +4,14 @@
 # Scripts must be executable (chmod +x)
 echo "-> Running strap-after-setup. Some steps may require password entry."
 
+echo "--> copying HOME/bin files"
+if [ ! -d $HOME/bin ]; then
+    mkdir -v $HOME/bin
+fi
+# TODO(make these symlinks?)
+cp -v ~/.dotfiles/bin/* ~/bin/
+
+
 ### Configure macOS
 if [ "${MACOS:-0}" -gt 0 ] || [ "$(uname)" = "Darwin" ]; then
   "$HOME"/.dotfiles/scripts/macos.sh
@@ -35,9 +43,6 @@ fi
 #   "$HOME"/.dotfiles/scripts/vscode-extensions.sh "$i"
 # done
 
-### Install pinned mercurial version
-pip3 install mercurial==6.5.1
-
 # works with:
 # ( cd ~/src/dev.heptapod.net/mercurial/hg-git/hggit ; hg sum )
 # parent: 2075:162f2ee771d9 tip
@@ -53,19 +58,28 @@ else
   echo "Shell is already set to Bash."
 fi
 
+### Find a working hg
+if [[ -f $(echo ${HOME}/Library/Python/*/bin/hg) ]]; then
+  HG_BIN=$(echo ${HOME}/Library/Python/*/bin/hg | sort -n | head -1)
+  ${HG_BIN} version && echo "Found working mercurial binary at $HG_BIN"
+elif [[ $(type -a hg) ]]; then
+  echo type -a hg output: $(type -a hg)
+  hg --version
+  HG_BIN=hg
+else
+  echo "!!!> unable to find working hg"
+  exit 1
+fi
+
 ### Set doom
 if ! [[ -d $HOME/.config/emacs ]]; then
   echo "--> Checking out DOOM emacs source."
   (
     cd $HOME/.config
-    hg clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
+    ${HG_BIN} clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
   )
 fi
-PATH=$HOME/.config/emacs/bin:$PATH
+# path goes in bash_profile:
+# PATH=$HOME/.config/emacs/bin:$PATH
 
 echo "--> Don't forget to run 'doom sync'"
-
-if [ ! -d $HOME/bin ]; then
-    mkdir $HOME/bin
-fi
-cp -v ~/.dotfiles/bin/* ~/bin/
