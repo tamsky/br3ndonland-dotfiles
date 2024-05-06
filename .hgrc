@@ -1,0 +1,115 @@
+# -*- conf -*-
+# Found helpful resources
+# - https://github.com/ches/dotfiles/blob/master/.hgrc
+
+[ui]
+merge = emacs
+username = Marc Tamsky <tamsky@users.noreply.github.com>
+paginate = off
+
+# Abort instead of trying to auto-commit when subrepos have changes
+commitsubrepos = no
+
+[subrepos]
+allowed = True
+hg:allowed = True
+git:allowed = True
+
+# start: allow hg and hg-git development
+#[experimental]
+#evolution=all
+#[extensions]
+#evolve=
+# end: allow hg and hg-git development
+
+[extensions]
+show =
+hgext.bookmarks =
+hgext.mq =
+
+hggit = ~/Library/Python/3.9/lib/python/site-packages/hggit
+#hggit =
+# last working version of 'pip install hg-git' was 0.10.4
+#hggit = ~/src/bitbucket/durin42/hg-git/hggit
+# default branch (2023-09-26)
+#hggit = ~/src/dev.heptapod.net/mercurial/hg-git/hggit
+
+strip =
+# disabled on 2020-03-09, due to lack of extension, forgot what it's useful for
+#hgext.convert =
+graphlog =
+shelve =
+
+# too many files open errors (July 2023 - disabled)
+# https://www.mercurial-scm.org/wiki/FsMonitorExtension
+# fsmonitor =
+
+# hg-prompt now at https://hg.stevelosh.com/hg-prompt
+# we can try this again soon, should speed up prompt (2020)
+# more notes at https://lobste.rs/s/drn7v2/hg_prompt
+#prompt = ~/src/gitlab/tamsky/hg-prompt/prompt.py
+
+# careful now:
+# purge =
+
+# hgext.topic =
+
+[bookmarks]
+# More git-like behavior: only update the bookmark you are currently using,
+# instead of multiple if they are pointing to the same changeset
+track.current = True
+
+
+[merge-tools]
+emacs.args = -q --eval "(ediff-merge-with-ancestor \""$local"\" \""$other"\" \""$base"\" nil \""$output"\")"
+
+[hooks]
+update.do_not_commit = $HOME/bin/my-hg-pre-update-hook.sh $HG_PARENT1 $HG_PARENT2
+
+[alias]
+bm = bookmark
+
+# from https://bitbucket.org/twic/devtools/src/3c3c9081c4b1ad7a4631ea0dce0442d4ce95ca94/hg/hgrc?at=default
+lg = log --template '{rev}:{node|short} {date|isodate} {desc|strip|firstline} -- {author|person}\n'
+
+# from http://jamie-wong.com/2012/07/11/my-mercurial-setup-and-workflow-at-khan-academy/
+lga = glog --style=$HOME/.hg-map-cmdline.lg
+
+
+unrevert = !F="$1"; F="${F%.orig}"; mv "$F.orig" "$F"
+nukebookmarks = !$HG bookmarks | tr -d '*' | tr -s ' ' | cut -d ' ' -f 2 | sed "s/'/\\\'/g" | xargs $HG bookmark -d
+stripanonymous = !while [ "$(hg log -r 'head() and not bookmark()' | wc -l)" -ne 0 ]; do hg strip -r 'head() and not bookmark()'; done
+
+pullup = pull -u
+pu = pull -u
+
+clean = purge --print
+clean-for-realsies = purge
+
+# default shelve extension:
+##################################
+browse = shelve --list --stat
+shelve-detail = shelve --patch
+visit = unshelve --keep
+read-scroll = unshelve
+
+###################################################
+# 3rd party attic extension
+###################################################
+# https://www.mercurial-scm.org/wiki/AtticExtension
+###################################################
+# attic-shelve
+# attic-unshelve
+# attic-display
+
+
+[mq]
+# Use the secret phase for mq changesets -- see 'hg help phases'
+secret = True
+
+[git]
+blockdothg = false
+
+# found in: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/mercurial.rb
+[pager]
+pager = less -FRX
