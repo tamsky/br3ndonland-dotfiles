@@ -52,6 +52,11 @@ if [[ -d $HOME/.config/emacs/bin ]]; then
   PATH=$HOME/.config/emacs/bin:$PATH
 fi
 
+### use MacOS-pip3 installed version of hg
+if [[ -f $HOME/Library/Python/3.9/bin/hg ]]; then
+  PATH=$HOME/Library/Python/3.9/bin:$PATH
+fi
+
 #########################
 ### aliases/functions ###
 #########################
