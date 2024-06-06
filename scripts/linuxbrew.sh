@@ -4,16 +4,18 @@
 
 set -eo pipefail
 
-# Set up DEB packages
-# Proton VPN: https://protonvpn.com/support/linux-vpn-tool/
-if command -v xdg-user-dir &>/dev/null; then
-  download_dir=$(xdg-user-dir DOWNLOAD)
-else
-  mkdir -p "$HOME/Downloads"
-  download_dir="$HOME/Downloads"
-fi
-
+# retired for now -- we don't have targets using apt yet
+#
 install_protonvpn_using_deb() {
+  # Set up DEB packages
+  # Proton VPN: https://protonvpn.com/support/linux-vpn-tool/
+  if command -v xdg-user-dir &>/dev/null; then
+    download_dir=$(xdg-user-dir DOWNLOAD)
+  else
+    mkdir -p "$HOME/Downloads"
+    download_dir="$HOME/Downloads"
+  fi
+
   deb_url="https://repo.protonvpn.com/debian/dists/stable/main/binary-all"
   deb_file="protonvpn-stable-release_1.0.3_all.deb"
   deb_path="$download_dir/$deb_file"
@@ -41,6 +43,10 @@ install_protonvpn_using_deb() {
     sudo apt-get install -qy "$PACKAGE"
   done
 }
+
+# todo:
+# pacman detect and install package list
+
 
 detect_homebrew_prefix() {
   if [ -n "$HOMEBREW_PREFIX" ] && [ -d "$HOMEBREW_PREFIX" ]; then
