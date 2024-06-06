@@ -27,8 +27,8 @@ show =
 hgext.bookmarks =
 hgext.mq =
 
-hggit = ~/Library/Python/3.9/lib/python/site-packages/hggit
-#hggit =
+hggit =
+#hggit = ~/Library/Python/3.9/lib/python/site-packages/hggit
 # last working version of 'pip install hg-git' was 0.10.4
 #hggit = ~/src/bitbucket/durin42/hg-git/hggit
 # default branch (2023-09-26)
