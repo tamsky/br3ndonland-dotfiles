@@ -13,32 +13,34 @@ else
   download_dir="$HOME/Downloads"
 fi
 
-deb_url="https://repo.protonvpn.com/debian/dists/stable/main/binary-all"
-deb_file="protonvpn-stable-release_1.0.3_all.deb"
-deb_path="$download_dir/$deb_file"
-printf "\nDownloading Proton VPN setup DEB to %s\n" "$deb_path"
-curl -fsSL -o "$deb_path" "$deb_url/$deb_file"
-printf "\nInstalling Proton VPN setup DEB from %s\n" "$deb_path"
-sudo apt-get install -qy "$deb_path"
-sudo apt-get update
+install_protonvpn_using_deb() {
+  deb_url="https://repo.protonvpn.com/debian/dists/stable/main/binary-all"
+  deb_file="protonvpn-stable-release_1.0.3_all.deb"
+  deb_path="$download_dir/$deb_file"
+  printf "\nDownloading Proton VPN setup DEB to %s\n" "$deb_path"
+  curl -fsSL -o "$deb_path" "$deb_url/$deb_file"
+  printf "\nInstalling Proton VPN setup DEB from %s\n" "$deb_path"
+  sudo apt-get install -qy "$deb_path"
+  sudo apt-get update
 
-# Install apt-get packages
-PACKAGES=(
-  apt-transport-https
-  build-essential
-  ca-certificates
-  curl
-  file
-  git
-  gnupg-agent
-  procps
-  protonvpn-cli
-  software-properties-common
-)
-[ -n "$1" ] && PACKAGES+=("[@]")
-for PACKAGE in "${PACKAGES[@]}"; do
-  sudo apt-get install -qy "$PACKAGE"
-done
+  # Install apt-get packages
+  PACKAGES=(
+    apt-transport-https
+    build-essential
+    ca-certificates
+    curl
+    file
+    git
+    gnupg-agent
+    procps
+    protonvpn-cli
+    software-properties-common
+  )
+  [ -n "$1" ] && PACKAGES+=("[@]")
+  for PACKAGE in "${PACKAGES[@]}"; do
+    sudo apt-get install -qy "$PACKAGE"
+  done
+}
 
 detect_homebrew_prefix() {
   if [ -n "$HOMEBREW_PREFIX" ] && [ -d "$HOMEBREW_PREFIX" ]; then
