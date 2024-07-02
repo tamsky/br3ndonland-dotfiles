@@ -10,7 +10,9 @@
 # handle merge ( PARENT1 set (unchanged), PARENT2 set (working directory ID) )
 [[ $1 ]] && [[ $2 ]] && {
   echo "hg pre-update hook triggered: PARENT1=$1, PARENT2=$2"
-  hg diff -r $2 -r $1 | grep ^+ | grep 'DO NOT MERGE' 2>&1 >/dev/null &&
+
+  # shellcheck disable=SC2069
+  hg diff -r "$2" -r "$1" | grep ^+ | grep 'DO NOT MERGE' 2>&1 1>/dev/null &&
     exit 1 || exit 0
 }
 
