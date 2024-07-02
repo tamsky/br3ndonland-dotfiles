@@ -76,7 +76,7 @@ if ! [[ -d $HOME/.config/emacs ]]; then
   echo "--> Checking out DOOM emacs source."
   (
     cd $HOME/.config
-    ${HG_BIN} clone git+https://github.com/doomemacs/doomemacs ~/.config/emacs
+    git clone https://github.com/doomemacs/doomemacs.git ~/.config/emacs
   )
 fi
 # path goes in bash_profile:
