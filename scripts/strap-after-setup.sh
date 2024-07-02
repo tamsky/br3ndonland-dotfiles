@@ -5,8 +5,8 @@
 echo "-> Running strap-after-setup. Some steps may require password entry."
 
 echo "--> copying HOME/bin files"
-if [ ! -d $HOME/bin ]; then
-  mkdir -v $HOME/bin
+if [ ! -d "$HOME/bin" ]; then
+  mkdir -v "$HOME/bin"
 fi
 # TODO(make these symlinks?)
 cp -v ~/.dotfiles/bin/* ~/bin/
@@ -58,11 +58,11 @@ else
 fi
 
 ### Find a working hg
-if [[ -f $(echo ${HOME}/Library/Python/*/bin/hg) ]]; then
-  HG_BIN=$(echo ${HOME}/Library/Python/*/bin/hg | sort -n | head -1)
+if [[ -f $(echo "${HOME}"/Library/Python/*/bin/hg) ]]; then
+  HG_BIN=$(echo "${HOME}"/Library/Python/*/bin/hg | sort -n | head -1)
   ${HG_BIN} version && echo "Found working mercurial binary at $HG_BIN"
 elif [[ $(type -a hg) ]]; then
-  echo type -a hg output: $(type -a hg)
+  echo type -a hg output: "$(type -a hg)"
   hg --version
   HG_BIN=hg
 else
@@ -74,8 +74,8 @@ fi
 if ! [[ -d $HOME/.config/emacs ]]; then
   echo "--> Checking out DOOM emacs source."
   (
-    cd $HOME/.config
-    git clone https://github.com/doomemacs/doomemacs.git ~/.config/emacs
+    cd "${HOME}"/.config &&
+      git clone https://github.com/doomemacs/doomemacs.git ~/.config/emacs
   )
 fi
 # path goes in bash_profile:
