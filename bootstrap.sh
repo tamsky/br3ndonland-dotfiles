@@ -318,8 +318,8 @@ configure_hg() {
 
   ${HG_BIN} version
   if ! grep -q extensions.hggit <(${HG_BIN} config); then
-  #  this was:
-  #  if [ -z $(${HG_BIN} config | grep extensions.hggit) ]; then
+    #  this was:
+    #  if [ -z $(${HG_BIN} config | grep extensions.hggit) ]; then
     echo "hg-git extension is not yet configured... "
     echo "please add 'hggit=' to your ~/.hgrc under [extensions]"
     echo "and run bootstrap again."
