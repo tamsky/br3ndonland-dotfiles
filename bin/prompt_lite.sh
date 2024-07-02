@@ -6,10 +6,10 @@
 declare -a STATUS=($(hg prompt "{status|full}" 2>/dev/null)
 )
 [[ "${STATUS[0]}" ]] && [[ "${STATUS[0]}" != "?" ]] && {
-    STATUS_FLAGS+="{= Wb}" # white on blue -> reverse mode -> blue on white -> inverted CLUT -> dim yellow on black
-    STATUS_FLAGS+=[${STATUS[0]}]
-    STATUS_FLAGS+="{-}"
-    STATUS_FLAGS+="{=dbu} {-}" # trailing space separates from BOOKMARK
+  STATUS_FLAGS+="{= Wb}" # white on blue -> reverse mode -> blue on white -> inverted CLUT -> dim yellow on black
+  STATUS_FLAGS+=[${STATUS[0]}]
+  STATUS_FLAGS+="{-}"
+  STATUS_FLAGS+="{=dbu} {-}" # trailing space separates from BOOKMARK
 }
 
 #STATUS=$( echo $(echo -n $-) )
@@ -22,7 +22,7 @@ DIR=$(basename $PWD 2>/dev/null)
 DIRPARENT=$(dirname $(dirname "$PWD") 2>/dev/null)
 
 BOOKMARK=$(
-    hg summary 2>/dev/null | gawk '/^bookmarks: / { $1="" ;  # delete "bookmarks:" string
+  hg summary 2>/dev/null | gawk '/^bookmarks: / { $1="" ;  # delete "bookmarks:" string
                               gsub("^ ","",$0);        # delete leading spaces
                               # print warnings
                               if (NF>1) { multiple_bookmarks=1 ; printf "{! rc}MULTIPLE{-} BOOKMARKS " }
@@ -42,9 +42,9 @@ BOOKMARK=$(
                             }'
 )
 [[ $IN_REPO -eq 0 ]] && {
-    # we are in a hg repo, if no bookmark set, warn us:
-    [[ $BOOKMARK ]] || BOOKMARK=$"<"$"<""NO BOOKMARK"$">"$">"
-    BOOKMARK_NAME=$(head -1 $REPOROOT/.hg/bookmarks.current 2>/dev/null)
+  # we are in a hg repo, if no bookmark set, warn us:
+  [[ $BOOKMARK ]] || BOOKMARK=$"<"$"<""NO BOOKMARK"$">"$">"
+  BOOKMARK_NAME=$(head -1 $REPOROOT/.hg/bookmarks.current 2>/dev/null)
 }
 
 # =~ ^[0-9a-zA-Z_]
@@ -58,16 +58,16 @@ WAKATIME_BIN=$(type -p wakatime || type -p wakatime-cli)
 
 # call wakatime in the background
 [[ ${_last_history_number_had_new_command} ]] &&
-    $(type -p "${_last_history_number_had_new_command}" >/dev/null) && {
+  $(type -p "${_last_history_number_had_new_command}" >/dev/null) && {
 
-    ## we only log if the string is an executable file or function name
-    SHORT_PWD=$(echo $PWD | sed -e 's@'$HOME'@@' | tr '/' '^')
-    echo $(date) ${REPO:-$SHORT_PWD} ${BOOKMARK_NAME} ${_last_history_number_had_new_command} >>${HOME}/.wakatime.prompt_lite.log
-    ( (${WAKATIME_BIN} --write --plugin "bash-wakatime/0.1.1" \
-        --entity-type app \
-        --project "${REPO:-$SHORT_PWD}" \
-        --alternate-project "${BOOKMARK_NAME}" \
-        --entity "${_last_history_number_had_new_command}" 2>&1 >/dev/null) &)
+  ## we only log if the string is an executable file or function name
+  SHORT_PWD=$(echo $PWD | sed -e 's@'$HOME'@@' | tr '/' '^')
+  echo $(date) ${REPO:-$SHORT_PWD} ${BOOKMARK_NAME} ${_last_history_number_had_new_command} >>${HOME}/.wakatime.prompt_lite.log
+  ( (${WAKATIME_BIN} --write --plugin "bash-wakatime/0.1.1" \
+    --entity-type app \
+    --project "${REPO:-$SHORT_PWD}" \
+    --alternate-project "${BOOKMARK_NAME}" \
+    --entity "${_last_history_number_had_new_command}" 2>&1 >/dev/null) &)
 }
 
 # emit to SCREEN(1) as a hardstatus string
