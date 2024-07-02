@@ -47,7 +47,6 @@ install_protonvpn_using_deb() {
 # todo:
 # pacman detect and install package list
 
-
 detect_homebrew_prefix() {
   if [ -n "$HOMEBREW_PREFIX" ] && [ -d "$HOMEBREW_PREFIX" ]; then
     return

@@ -6,11 +6,10 @@ echo "-> Running strap-after-setup. Some steps may require password entry."
 
 echo "--> copying HOME/bin files"
 if [ ! -d $HOME/bin ]; then
-    mkdir -v $HOME/bin
+  mkdir -v $HOME/bin
 fi
 # TODO(make these symlinks?)
 cp -v ~/.dotfiles/bin/* ~/bin/
-
 
 ### Configure macOS
 if [ "${MACOS:-0}" -gt 0 ] || [ "$(uname)" = "Darwin" ]; then

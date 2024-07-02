@@ -80,7 +80,7 @@ hidutil property --set \
    }'
 
 # install launch agent to persist this change
-cat > ~/Library/LaunchAgents/com.tamsky.KeyRemapping.plist <<EOF
+cat >~/Library/LaunchAgents/com.tamsky.KeyRemapping.plist <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
