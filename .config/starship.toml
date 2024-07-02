@@ -7,12 +7,12 @@ command_timeout = 5000
 disabled = true
 
 [nodejs]
-format = "via [node.js ($version )]($style)"
 disabled = true
+format = "via [node.js ($version )]($style)"
 
 [python]
-python_binary = "python3"
 disabled = true
+python_binary = "python3"
 
 [shell]
 bash_indicator = "bash "
@@ -24,5 +24,5 @@ zsh_indicator = ""
 
 [hg_branch]
 #truncation_length = 36
-truncation_symbol = '…'
 disabled = false
+truncation_symbol = '…'
