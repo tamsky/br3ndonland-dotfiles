@@ -113,7 +113,6 @@ brew "pyenv-virtualenv"
 brew "python"
 
 brew "python-certifi"
-brew "python-lxml"
 brew "python-packaging"
 brew "python-setuptools"
 
@@ -121,6 +120,7 @@ brew "python-setuptools"
 #brew "python-brotli"
 #brew "python-click"
 #brew "python-cryptography" - replaced by "cryptography"
+#brew "python-lxml" - disabled upstream 2024-08-15
 #brew "python-markupsafe"
 #brew "python-mutagen"
 #brew "python-psutil"
