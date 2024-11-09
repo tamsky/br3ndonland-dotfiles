@@ -218,10 +218,15 @@ cask "zotero" # no arm64_big_sur yet
 
 # prior cask install list
 # ==> Formulae
-# adns
 brew "ansible"
-# aom
 brew "argocd"
+brew "bclm"
+brew "blackhole-2ch"
+brew "ripgrep"  # required for DOOM
+brew "screen"
+
+# adns
+# aom
 # aribb24
 # arm-gcc-bin@8
 # assimp
@@ -239,9 +244,7 @@ brew "argocd"
 # bash
 # bash-completion
 # bazaar
-brew "bclm"
 # bdw-gc
-brew "blackhole-2ch"
 # boost
 # bootloadhid
 # brotli
@@ -512,7 +515,6 @@ brew "blackhole-2ch"
 # rav1e
 # rclone
 # readline
-brew "ripgrep"  # required for DOOM
 # rtmpdump
 # rubberband
 # ruby
@@ -520,7 +522,6 @@ brew "ripgrep"  # required for DOOM
 # rustup-init
 # rxvt-unicode
 # scrcpy
-brew "screen"
 # screenresolution
 # sdl2
 # sdl2_image
@@ -572,7 +573,6 @@ brew "screen"
 # x265
 # xidel
 # xmlto
-xquartz
 # xorgproto
 # xvid
 # xz
@@ -587,8 +587,6 @@ xquartz
 # zimg
 # zstd
 # zxing-cpp
-
-
 
 # => Casks
 # 1password
