@@ -1,5 +1,8 @@
 # -*- text -*-
 
+# possibly useful docs:
+# - https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
+
 cask_args appdir: "/Applications", require_sha: true
 
 #
