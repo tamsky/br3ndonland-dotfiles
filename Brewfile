@@ -111,23 +111,26 @@ brew "pstree"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python"
-brew "python-brotli"
+
 brew "python-certifi"
-brew "python-click"
-brew "python-cryptography"
 brew "python-lxml"
-brew "python-markupsafe"
-brew "python-mutagen"
 brew "python-packaging"
-brew "python-psutil"
-brew "python-pytz"
 brew "python-setuptools"
-brew "python-typing-extensions"
+
+# removed:
+#brew "python-brotli"
+#brew "python-click"
+#brew "python-cryptography" - replaced by "cryptography"
+#brew "python-markupsafe"
+#brew "python-mutagen"
+#brew "python-psutil"
+#brew "python-pytz"
+#brew "python-typing-extensions"
+
 brew "python@3.12"
 
-
-
-brew "r"
+# we don't use it yet
+# brew "r"
 brew "rclone"
 brew "rust"
 # brew "sabnzbd" - investigating
@@ -569,6 +572,7 @@ brew "screen"
 # x265
 # xidel
 # xmlto
+xquartz
 # xorgproto
 # xvid
 # xz
@@ -667,7 +671,6 @@ cask "vagrant" # @ 2.4.0
 cask "vmware-fusion"
 # cask "vagrant-vmware-utility"  # requires rosetta
 cask "whatsapp"
-# xquartz
 cask "yubico-authenticator"
 # yujitach-menumeters
 cask "zoom"
