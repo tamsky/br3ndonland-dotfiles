@@ -142,7 +142,7 @@ brew "starship"
 brew "taplo"
 brew "tcl-tk"
 brew "tcping"
-#brew "terraform@1.5"
+# brew "terraform@1.5"
 brew "terragrunt"
 brew "tfenv"
 brew "transmission-cli"
@@ -177,30 +177,40 @@ brew "zeromq"
 #brew "zsh-syntax-highlighting"
 
 
+brew "ansible"
+brew "argocd"
+brew "bclm"
+brew "blackhole-2ch"
+brew "ripgrep"  # required for DOOM
+brew "screen"
+
+
 cask "1password", args: { appdir: "/Applications" }
 cask "1password-cli", args: { appdir: "/Applications" }
+cask "iina"
+cask "kitty"   # gpu-based terminal
+cask "session-manager-plugin"
+cask "vlc"
+cask "xquartz"
+cask "zotero" # no arm64_big_sur yet
+
+
 # cask "brave-browser"
 # cask "datagrip"
 # cask "docker"
 # cask "firefox"
-cask "iina"
 # cask "inkscape"
 # cask "karabiner-elements"
-cask "kitty"   # gpu-based terminal
 # cask "notion"
 # cask "postico"
 # cask "postman"
 # cask "protonvpn"
 # cask "rstudio"
-cask "session-manager-plugin"
 # cask "slack"
 # cask "syncthing"
 # cask "visual-studio-code"
-cask "vlc"
-cask "xquartz"
 # cask "vscodium"
 # cask "zoom"
-cask "zotero" # no arm64_big_sur yet
 
 #mas "1password", id: 1333542190
 #mas "bear", id: 1091189122
@@ -218,13 +228,6 @@ cask "zotero" # no arm64_big_sur yet
 
 # prior cask install list
 # ==> Formulae
-brew "ansible"
-brew "argocd"
-brew "bclm"
-brew "blackhole-2ch"
-brew "ripgrep"  # required for DOOM
-brew "screen"
-
 # adns
 # aom
 # aribb24
@@ -589,86 +592,87 @@ brew "screen"
 # zxing-cpp
 
 # => Casks
-# 1password
-# 1password-cli
-# airy
+# cask "1password"
+# cask "1password-cli"
+# cask "airy"
+# cask "android-file-transfer"
+# cask "android-platform-tools"
+# cask "arduino"
+# cask "arq"
+# cask "audacity"
+# cask "aws-vault"
+# cask "balenaetcher"
+# cask "beardedspice"
+# cask "betterdisplay"
+# cask "bitwarden"
+# cask "bria"
+# cask "caffeine"
+# cask "cubicsdr"
+# cask "daisydisk"
+# cask "dexed"
+# cask "cloudflared" # retired
+# cask "vagrant-vmware-utility"  # requires rosetta
+# cask "gcc-arm-embedded"
+# cask "gfxcardstatus"
+# cask "gswitch"
+# cask "hashicorp-vagrant"
+# cask "jdiskreport"
+# cask "jitsi"
+# cask "keka"
+# cask "kindlegen"
+# cask "krita"
+# cask "lastpass"
+# cask "macfuse"
+# cask "multipass"
+# cask "ocenaudio"
+# cask "osxfuse"
+# cask "paintbrush"
+# cask "radio-silence"
+# cask "rember"
+# cask "schism-tracker"
+# cask "session-manager-plugin"
+# cask "slack"
+# cask "subler"
+# cask "teamviewer"
+# cask "transmission"
+# cask "tunnelblick"
+# cask "virtualbox"
+# cask "virtualbox-extension-pack"
+# cask "vlc"
+# cask "yujitach-menumeters"
+# cask "skyfonts"
+# cask "soundflower"  -- blackhole (non-cask) is the new soundflower
+
 cask "aerial"
 cask "aldente"
-# android-file-transfer
-# android-platform-tools
-# arduino
-# arq
-# audacity
-# aws-vault
-# balenaetcher
 cask "barrier"
-# beardedspice
-# betterdisplay
-# bitwarden
-# bria
-# caffeine
 cask "calibre"
-cask "cloudflared"
 cask "cloudflare-warp"
 cask "coconutbattery"
-# cubicsdr
-# daisydisk
-# dexed
 cask "drivedx"
 cask "firefox"
 cask "flux"
+cask "font-inconsolata", args: { require_sha: false }
 cask "font-terminus"
-cask "font-inconsolata"
-# gcc-arm-embedded
-# gfxcardstatus
 cask "gimp"
-cask "google-chrome"
+cask "google-chrome", args: { require_sha: false }
 cask "grandperspective"
-# gswitch
 cask "handbrake"
-# hashicorp-vagrant
-# jdiskreport
-# jitsi
-# keka
-cask "keybase"
-# kindlegen
-# krita
-# lastpass
+# cask "keybase" - no longer useful
 cask "linphone"
 cask "lulu"
-# macfuse
-# multipass
 cask "notunes"
 cask "obs"
 cask "obsidian"
-# ocenaudio
-# osxfuse
 cask "pacifist"
-# paintbrush
 cask "pop"
-# radio-silence
-# rember
-# schism-tracker
-# session-manager-plugin
 cask "signal"
-# slack
-#cask "soundflower"  -- blackhole (non-cask) is the new soundflower
 cask "soundflowerbed"
-#cask "skyfonts"
 cask "steam"
-# subler
-# teamviewer
 cask "telegram-desktop"
 cask "tigervnc-viewer"
-# transmission
-# tunnelblick
 cask "vagrant" # @ 2.4.0
-# virtualbox
-# virtualbox-extension-pack
-# vlc
 cask "vmware-fusion"
-# cask "vagrant-vmware-utility"  # requires rosetta
 cask "whatsapp"
 cask "yubico-authenticator"
-# yujitach-menumeters
 cask "zoom"
