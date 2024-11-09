@@ -671,6 +671,7 @@ cask "soundflowerbed"
 cask "steam"
 cask "telegram-desktop"
 cask "tigervnc-viewer"
+cask "utm"
 cask "vagrant" # @ 2.4.0
 cask "vmware-fusion"
 cask "whatsapp"
