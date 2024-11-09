@@ -180,7 +180,6 @@ brew "zeromq"
 brew "ansible"
 brew "argocd"
 brew "bclm"
-brew "blackhole-2ch"
 brew "ripgrep"  # required for DOOM
 brew "screen"
 
@@ -646,6 +645,7 @@ cask "zotero" # no arm64_big_sur yet
 cask "aerial"
 cask "aldente"
 cask "barrier"
+cask "blackhole-2ch"
 cask "calibre"
 cask "cloudflare-warp"
 cask "coconutbattery"
@@ -671,9 +671,11 @@ cask "soundflowerbed"
 cask "steam", args: { require_sha: false }
 cask "telegram-desktop"
 cask "tigervnc-viewer"
-cask "utm"
 cask "vagrant" # @ 2.4.0
 cask "vmware-fusion"
 cask "whatsapp"
 cask "yubico-authenticator"
 cask "zoom"
+
+# apple silicon hosts only:
+# cask "utm"
