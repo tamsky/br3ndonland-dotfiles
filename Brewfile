@@ -668,7 +668,7 @@ cask "pacifist"
 cask "pop"
 cask "signal"
 cask "soundflowerbed"
-cask "steam"
+cask "steam", args: { require_sha: false }
 cask "telegram-desktop"
 cask "tigervnc-viewer"
 cask "utm"
