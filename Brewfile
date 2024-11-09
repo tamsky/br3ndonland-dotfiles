@@ -11,7 +11,7 @@ tap "zackelia/formulae"
 
 tap "cloudflare/cloudflare"
 #tap "hashicorp/tap"
-tap "homebrew/cask-fonts"
+#tap "homebrew/cask-fonts" (deprecated)
 #tap "wallix/awless"
 
 tap "d12frosted/emacs-plus"
