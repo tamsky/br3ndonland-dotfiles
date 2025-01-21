@@ -550,7 +550,7 @@ run_brew_installs() {
   fi
 }
 
-# override available, set value before calling script
+# override available, set to '1' before calling script
 SKIP_INSTALL_HOMEBREW=${SKIP_INSTALL_HOMEBREW:-0}
 
 if [ "$SKIP_INSTALL_HOMEBREW" -eq 0 ] ; then
@@ -568,7 +568,7 @@ if [ "$SKIP_INSTALL_HOMEBREW" -eq 0 ] ; then
   fi
 fi
 
-if [ "$SKIP_INSTALL_HOMEBREW" -ne 0 ] ; then
+if [ "$SKIP_INSTALL_HOMEBREW" -eq 0 ] ; then
   # Install Homebrew: https://docs.brew.sh/Installation
   script_url="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
   NONINTERACTIVE=$STRAP_CI \
