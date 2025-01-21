@@ -550,10 +550,30 @@ run_brew_installs() {
   fi
 }
 
-# Install Homebrew: https://docs.brew.sh/Installation
-script_url="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-NONINTERACTIVE=$STRAP_CI \
-  /usr/bin/env bash -c "$(curl -fsSL $script_url)" || install_homebrew
+# override available, set value before calling script
+SKIP_INSTALL_HOMEBREW=${SKIP_INSTALL_HOMEBREW:-0}
+
+if [ "$SKIP_INSTALL_HOMEBREW" -eq 0 ] ; then
+  if [ "$MACOS" -gt 0 ] ; then
+    if [ -x /usr/local/bin/brew ] ; then
+      echo "$0: fairly sure you have a very old install of 'brew'."
+      echo "$0: skpping homebrew install step."
+      SKIP_INSTALL_HOMEBREW=1
+    fi
+    if [ "$MACOS" -gt 0 ] && [ -x /opt/local/bin/brew ] ; then
+      echo "$0: fairly sure you have a current install of homebrew at /opt/local/bin/brew."
+      echo "$0: skipping homebrew install step."
+      SKIP_INSTALL_HOMEBREW=1
+    fi
+  fi
+fi
+
+if [ "$SKIP_INSTALL_HOMEBREW" -ne 0 ] ; then
+  # Install Homebrew: https://docs.brew.sh/Installation
+  script_url="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+  NONINTERACTIVE=$STRAP_CI \
+    /usr/bin/env bash -c "$(curl -fsSL $script_url)" || install_homebrew
+fi
 
 # Set up Homebrew on Linux: https://docs.brew.sh/Homebrew-on-Linux
 [ "$LINUX" -gt 0 ] && run_dotfile_scripts scripts/linuxbrew.sh
