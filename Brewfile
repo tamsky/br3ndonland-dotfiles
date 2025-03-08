@@ -148,7 +148,7 @@ brew "tcping"
 # brew "terraform@1.5"
 brew "terragrunt"
 brew "tfenv"
-brew "transmission-cli"
+# brew "transmission-cli"
 brew "tree"
 brew "tree-sitter"
 
