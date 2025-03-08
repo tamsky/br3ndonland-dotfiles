@@ -94,7 +94,7 @@ brew "nmap"
 # brew "mysql-client"
 # brew "node"
 brew "openssh"
-brew "opentofu"
+# brew "opentofu"
 brew "openssl@3"
 brew "opus"
 
