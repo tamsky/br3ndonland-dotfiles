@@ -30,7 +30,9 @@ escape ``
 # UI elements
 #############
 bell 'Bell in window %~'
-nethack on
+
+# removed in screen-5
+# nethack on
 
 # unbind some keystrokes we don't like
 C-\ (^\ == \034)
@@ -56,17 +58,25 @@ defflow off
 #obuflimit
 
 
-#after we upgrade screen version:
+# since 2019:
 hardstatus alwayslastline
 
-# hostname w/o color:
-hardstatus string "%H: %-Lw%{+ Yk}%50>%n%f* %t:%h%{-}%+Lw%<"
+# starting 2024, screen-5
+truecolor on
+
+# hostname w color: (pre-truecolor, pre-screen-5)
+# hardstatus string "%H: %-Lw%{+ Yk}%50>%n%f* %t:%h%{-}%+Lw%<"
+
+# hostname with updated colors
+# %-Lw   list windows before current window, the optional 'L' indicates that these windows show their flags
+# %+Lw   list windows after current window, the optional 'L' indicates that these windows show their flags
+hardstatus string "%H: %-Lw%{+3;d0}%50>%n%f* %t:%h%{-}%+Lw%<"
 
 # original (with half-bright turned on:)
 #          "%{+ .K}%H: %-Lw%{+ Yk}%50>%n%f* %t:%h%{-}%+Lw%<"
 # causes half bright to not show when screen-inside-screen
 
-# use '#' to toggle hardstatus
+# use backtick-'#' to toggle hardstatus
 bind \043 source $HOME/.screenrc-hardstatus1
 
 
@@ -76,4 +86,5 @@ bind \043 source $HOME/.screenrc-hardstatus1
 
 #caption always '%{= yd}%h%{-} %{= wd}%t%{-} %=%0`'
 caption splitonly
+# use backtick-'$' to cycle hardstatus
 bind \044 source $HOME/.screenrc-caption1
