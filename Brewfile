@@ -19,10 +19,16 @@ tap "cloudflare/cloudflare"
 
 tap "d12frosted/emacs-plus"
 
-# autoconf
-# automake
-# awsume
+
+brew automake
+brew autoconf
+brew libtool
+brew nasm
+brew pkgconf
+
 #
+# awsume
+
 
 brew "awscli"
 brew "bash"
@@ -237,7 +243,6 @@ cask "zotero" # no arm64_big_sur yet
 # assimp
 # assume-role
 # autoconf
-# automake
 # avr-binutils
 # avr-gcc@8
 # avrdude
