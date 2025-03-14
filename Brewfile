@@ -660,8 +660,10 @@ cask "coconutbattery"
 cask "drivedx"
 cask "firefox"
 cask "flux"
+cask "font-iosevka"
 cask "font-inconsolata", args: { require_sha: false }
 cask "font-terminus"
+cask "font-source-code-pro"
 cask "gimp"
 cask "google-chrome", args: { require_sha: false }
 cask "grandperspective"
