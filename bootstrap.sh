@@ -368,7 +368,7 @@ configure_git() {
 configure_hg
 
 # The first call to `configure_git` is needed before cloning the dotfiles repo.
-configure_git
+# configure_git
 
 # Check for and install any remaining software updates
 logn "Checking for software updates:"
@@ -428,7 +428,7 @@ logk
 # The second call to `configure_git` is needed for CI use cases when certain
 # aspects of the `.gitconfig` cannot be used (like signing commits with SSH).
 # See commit c0542397e817fc1bd711984619eb73a6fdc937b2.
-configure_git
+# configure_git
 
 # shellcheck disable=SC2086
 install_homebrew() {
