@@ -18,7 +18,7 @@ tap "cloudflare/cloudflare"
 #tap "wallix/awless"
 
 tap "d12frosted/emacs-plus"
-
+# requires
 
 brew "automake"
 brew "autoconf"
@@ -41,6 +41,9 @@ brew "curl"
 
 brew "eksctl"
 #brew "emacs"
+
+# required for emacs-plus
+brew "libgccjit"
 brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-native-comp"]
 
 brew "exiftool"
@@ -651,7 +654,11 @@ cask "zotero" # no arm64_big_sur yet
 cask "aerial"
 cask "aldente"
 cask "barrier"
+
+# notes:
+# - https://github.com/Homebrew/homebrew-cask/issues/171570
 cask "blackhole-2ch"
+
 cask "calibre"
 cask "cloudflare-warp"
 cask "coconutbattery"
