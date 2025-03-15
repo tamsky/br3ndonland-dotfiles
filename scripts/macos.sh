@@ -300,6 +300,9 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
   '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 
+# TODO: see if the above comports with "Spotlight search categories"
+# TODO(2): add enable/disable application-level SIRI learn settings
+
 ###############################################################################
 # Networking                                                                  #
 ###############################################################################
