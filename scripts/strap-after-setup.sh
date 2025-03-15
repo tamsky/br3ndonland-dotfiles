@@ -13,12 +13,19 @@ cp -v ~/.dotfiles/bin/* ~/bin/
 
 ### Configure macOS
 if [ "${MACOS:-0}" -gt 0 ] || [ "$(uname)" = "Darwin" ]; then
-  "$HOME"/.dotfiles/scripts/macos.sh
+  if [ "$STRAP_DEBUG" -eq 0 ]; then
+    "$HOME"/.dotfiles/scripts/macos.sh
+  else
+    bash -x "$HOME"/.dotfiles/scripts/macos.sh
+  fi
   # Configure 1Password SSH agent path for consistency with Linux
   # https://developer.1password.com/docs/ssh/get-started
-  mkdir -p ~/.1password && ln -s \
-    ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock \
-    ~/.1password/agent.sock
+
+  ### (agent file does not exist, but (s.sock) does.  research if this is needed.
+  ###
+  ### mkdir -p ~/.1password && ln -s \
+  ###   ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock \
+  ###   ~/.1password/agent.sock
 
   # https://gist.github.com/sbailliez/2305d831ebcf56094fd432a8717bed93
   # vmware 13 install steps
