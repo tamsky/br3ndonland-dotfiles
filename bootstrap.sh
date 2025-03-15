@@ -197,7 +197,7 @@ run_dotfile_scripts() {
           if [ "$STRAP_DEBUG" -eq 0 ]; then
             "$i" 2>/dev/null
           else
-            "$i"
+            STRAP_DEBUG=""${STRAP_DEBUG}" bash -x "$i"
           fi
           break
         fi
