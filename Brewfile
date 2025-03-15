@@ -20,17 +20,15 @@ tap "cloudflare/cloudflare"
 tap "d12frosted/emacs-plus"
 
 
-brew automake
-brew autoconf
-brew libtool
-brew nasm
-brew pkgconf
+brew "automake"
+brew "autoconf"
+brew "libtool"
+brew "nasm"
+brew "pkgconf"
 
-#
-# awsume
-
-
+# brew "awsume"
 brew "awscli"
+
 brew "bash"
 brew "bash-completion"
 
