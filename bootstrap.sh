@@ -560,7 +560,7 @@ if [ "$SKIP_INSTALL_HOMEBREW" -eq 0 ]; then
       echo "$0: skpping homebrew install step."
       SKIP_INSTALL_HOMEBREW=1
     fi
-    if [ "$MACOS" -gt 0 ] && [ -x /opt/local/bin/brew ] ; then
+    if [ "$MACOS" -gt 0 ] && [ -x /opt/local/bin/brew ]; then
       echo "$0: fairly sure you have a current install of homebrew at /opt/local/bin/brew."
       echo "$0: skipping homebrew install step."
       SKIP_INSTALL_HOMEBREW=1
