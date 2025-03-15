@@ -1,6 +1,7 @@
 #!/bin/bash
 
 [[ ${INSIDE_EMACS} ]] && exit 0
+[[ ${KITTY_PID} ]] && exit 0
 
 # gitlab/tamsky/hg-prompt not working.
 #  # hardstatus text:
