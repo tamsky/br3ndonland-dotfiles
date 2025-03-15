@@ -305,9 +305,9 @@ defaults write com.apple.spotlight orderedItems -array \
 ###############################################################################
 
 # Configure network services
-if networksetup -listallnetworkservices | grep -q "Ethernet"; then
-  networksetup -setdhcp "Ethernet"
-fi
+# if networksetup -listallnetworkservices | grep -q "Ethernet"; then
+#   networksetup -setdhcp "Ethernet"
+# fi
 
 # Configure Proton VPN
 # defaults write ch.protonvpn.mac AutoConnect -bool true
