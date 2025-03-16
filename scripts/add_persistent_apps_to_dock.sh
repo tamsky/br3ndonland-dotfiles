@@ -26,10 +26,7 @@ do
     fq=$(sed 's/[^[:alnum:]]/\\&/g' <<< "$f")   # quote meta characters for regex
 
     CFURLStringType=0
-    egrep -q '^file://' <<< "${f}"
-    if [[ $? ]] ; then
-        CFURLStringType=15
-    fi
+    egrep -q '^file://' <<< "${f}"  && CFURLStringType=15
 
     [[ -n $(defaults read com.apple.dock persistent-apps |
         sed -En "s/\"_CFURLString\" = \"?($fq)\"?;/\1/p" ) ]] && continue   # already exists
