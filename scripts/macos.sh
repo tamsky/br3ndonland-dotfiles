@@ -166,6 +166,9 @@ defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# Finder: disable file extension change warning
+# defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
@@ -177,7 +180,7 @@ chflags nohidden ~/Library
 defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 # Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "genie"
+defaults write com.apple.dock mineffect -string "scale"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -224,6 +227,9 @@ defaults write com.apple.dock showhidden -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Scroll up on a Dock icon to show all Space's opened windows for an app, or open stack.
+defaults write com.apple.dock "scroll-to-open" -bool "true"
 
 # Hot corners
 # Possible values:
