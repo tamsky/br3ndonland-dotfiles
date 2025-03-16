@@ -25,6 +25,12 @@ do
     f=${f/%+(\/)}/                              # normalise bundle path so that it ends with /
     fq=$(sed 's/[^[:alnum:]]/\\&/g' <<< "$f")   # quote meta characters for regex
 
+    CFURLStringType=0
+    egrep -q '^file://' <<< "${f}"
+    if [[ $? ]] ; then
+        CFURLStringType=15
+    fi
+
     [[ -n $(defaults read com.apple.dock persistent-apps |
         sed -En "s/\"_CFURLString\" = \"?($fq)\"?;/\1/p" ) ]] && continue   # already exists
 
@@ -37,7 +43,7 @@ do
             <key>_CFURLString</key>
             <string>${f}</string>
             <key>_CFURLStringType</key>
-            <integer>0</integer>
+            <integer>${CFURLStringType}</integer>
         </dict>
     </dict>
 </dict>
