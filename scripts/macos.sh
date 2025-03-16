@@ -195,6 +195,38 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Useful for setting up new Macs. Optionally relaunch dock with `killall Dock`.
 # defaults write com.apple.dock persistent-apps -array
 
+APPS_TO_ADD=(
+  file:///Applications/IINA.app/
+  file:///Applications/Utilities/XQuartz.app/
+  file:///System/Applications/System%20Settings.app/
+  file:///Applications/Google%20Chrome.app/
+  file:///Applications/Firefox.app/
+  file:///Applications/TigerVNC%20Viewer%201.15.0.app/
+  file:///Applications/Signal.app/
+  file:///System/Applications/Messages.app/
+  file:///Applications/WhatsApp.app/
+  file:///Applications/Microsoft%20Teams.app/
+  file:///System/Applications/FindMy.app/
+  file:///System/Applications/Utilities/Screen%20Sharing.app/
+  file:///Users/mtamsky/Applications/Chrome%20Apps.localized/Google%20Chat.app/
+  file:///System/Applications/QuickTime%20Player.app/
+  file:///System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/
+  file:///System/Applications/Contacts.app/
+  file:///System/Applications/Utilities/Terminal.app/
+  file:///System/Applications/Utilities/Activity%20Monitor.app/
+  file:///System/Applications/Utilities/Console.app/
+  file:///System/Applications/Preview.app/
+  file:///System/Applications/Stickies.app/
+  file:///System/Applications/TextEdit.app/
+  file:///System/Applications/Utilities/Audio%20MIDI%20Setup.app/
+  file:///System/Applications/Freeform.app/
+  file:///Applications/calibre.app/
+  file:///Applications/UTM.app/
+  file:///Applications/GrandPerspective.app/
+)
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+${SCRIPT_DIR}/add_persistent_apps_to_dock.sh ${APPS_TO_ADD[@]}
+
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
