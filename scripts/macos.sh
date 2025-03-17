@@ -180,7 +180,7 @@ chflags nohidden ~/Library
 defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 # Change minimize/maximize window effect
-defaults write com.apple.dock mineffect -string "scale"
+defaults write com.apple.dock mineffect -string scale
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -261,7 +261,11 @@ defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock show-recents -bool false
 
 # Scroll up on a Dock icon to show all Space's opened windows for an app, or open stack.
-defaults write com.apple.dock "scroll-to-open" -bool "true"
+defaults write com.apple.dock "scroll-to-open" -bool true
+
+# Show Command-Tab application list on all monitors.
+defaults write com.apple.dock appswitcher-all-displays -bool true
+
 
 # Hot corners
 # Possible values:
