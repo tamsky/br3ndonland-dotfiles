@@ -5,7 +5,7 @@
 # Load the shell dotfiles, and then some:
 #
 # * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
+# * ~/.extra can be used for other settings you don’t want to com~mit.
 
 for _file in ~/.{functions}; do
   [ -r "$_file" ] && [ -f "$_file" ] && source "$_file";
@@ -115,3 +115,10 @@ export LC_ALL=en_US.UTF-8
 if [ $(type -t dedup_input) ] ; then
   export PATH=$( printf "$PATH" | tr : '\n' | dedup_input | tr '\n' : )
 fi
+
+# Add tab completion for many Bash commands
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] &&
+  source "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+[ -f /etc/bash_completion ] &&
+  source /etc/bash_completion
