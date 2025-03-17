@@ -30,7 +30,7 @@ brew "pkgconf"
 brew "awscli"
 
 brew "bash"
-brew "bash-completion"
+brew "bash-completion@2"
 
 brew "cmake"
 brew "coreutils"  # required for DOOM
