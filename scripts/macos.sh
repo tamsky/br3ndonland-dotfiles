@@ -225,7 +225,7 @@ APPS_TO_ADD=(
   file:///Applications/GrandPerspective.app/
 )
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
-${SCRIPT_DIR}/add_persistent_apps_to_dock.sh ${APPS_TO_ADD[@]}
+"${SCRIPT_DIR}"/add_persistent_apps_to_dock.sh "${APPS_TO_ADD[@]}"
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false

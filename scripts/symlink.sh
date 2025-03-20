@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ### ------------------------ symlink dotfiles repo ------------------------ ###
 TEST=''
-[[ ${DEBUG} ]] && TEST=echo
+[[ ${DEBUG} ]] && TEST="echo"
 
 symlink_dir_contents() {
   TARGET_DIR=$3/${1##"$2"/}

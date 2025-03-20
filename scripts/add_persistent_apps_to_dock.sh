@@ -24,10 +24,11 @@ for f in "$@"; do
   # normalise bundle path so that it ends with /
   f=${f/%+(\/)/}/
   # quote meta characters for regex
+  # shellcheck disable=SC2001
   fq=$(sed 's/[^[:alnum:]]/\\&/g' <<<"$f")
 
   CFURLStringType=0
-  egrep -q '^file://' <<<"${f}" && CFURLStringType=15
+  grep -E -q '^file://' <<<"${f}" && CFURLStringType=15
 
   [[ -n $(defaults read com.apple.dock persistent-apps |
     sed -En "s/\"_CFURLString\" = \"?($fq)\"?;/\1/p") ]] && continue # already exists
