@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 ### ------------------------ symlink dotfiles repo ------------------------ ###
+TEST=''
+[[ ${DEBUG} ]] && TEST=echo
 
 symlink_dir_contents() {
   TARGET_DIR=$3/${1##"$2"/}
@@ -10,7 +12,7 @@ symlink_dir_contents() {
 }
 
 symlink_file() {
-  ln -nsfF "$1" "$3/${1##"$2"/}"
+  ${TEST} ln -nsfF "$1" "$3/${1##"$2"/}"
 }
 
 symlink_repo_dotfiles() {
@@ -25,11 +27,12 @@ symlink_repo_dotfiles() {
   )
   for DOTFILE in "$DOT_DIR/."*; do
     if ! [[ ${IGNORES[*]} =~ $DOTFILE ]]; then
-      [ -d "$DOTFILE" ] && symlink_dir_contents "$DOTFILE" "$DOT_DIR" "$HOME"
-      [ -f "$DOTFILE" ] && symlink_file "$DOTFILE" "$DOT_DIR" "$HOME"
+      [ -d "$DOTFILE" ] && ${TEST} symlink_dir_contents "$DOTFILE" "$DOT_DIR" "$HOME"
+      [ -f "$DOTFILE" ] && ${TEST} symlink_file "$DOTFILE" "$DOT_DIR" "$HOME"
     fi
   done
-  ln -nsfF "$DOT_DIR/Brewfile" "$HOME/.Brewfile"
+  # manual links
+  ${TEST} ln -nsfF "$DOT_DIR/Brewfile" "$HOME/.Brewfile"
 }
 
 # symlink_vscode_settings() {
