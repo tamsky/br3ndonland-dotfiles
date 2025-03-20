@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 #   file:
 #       add_persistent_apps_to_dock.sh

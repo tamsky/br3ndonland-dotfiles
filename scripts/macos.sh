@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 ### -------------------------- Set macOS defaults -------------------------- ###
 # https://github.com/mathiasbynens/dotfiles
 # Back up macOS default settings before changing
