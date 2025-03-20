@@ -21,14 +21,14 @@
 #
 shopt -s extglob
 for f in "$@"; do
-  f=${f/%+(\/)}/                            # normalise bundle path so that it ends with /
+  f=${f/%+(\/)/}/                           # normalise bundle path so that it ends with /
   fq=$(sed 's/[^[:alnum:]]/\\&/g' <<<"$f") # quote meta characters for regex
 
   CFURLStringType=0
   egrep -q '^file://' <<<"${f}" && CFURLStringType=15
 
   [[ -n $(defaults read com.apple.dock persistent-apps |
-    sed -En "s/\"_CFURLString\" = \"?($fq)\"?;/\1/p" ) ]] && continue # already exists
+    sed -En "s/\"_CFURLString\" = \"?($fq)\"?;/\1/p") ]] && continue # already exists
 
   defaults write com.apple.dock persistent-apps -array-add "
 <dict>
