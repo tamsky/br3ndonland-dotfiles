@@ -224,7 +224,7 @@ APPS_TO_ADD=(
   file:///Applications/UTM.app/
   file:///Applications/GrandPerspective.app/
 )
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 ${SCRIPT_DIR}/add_persistent_apps_to_dock.sh ${APPS_TO_ADD[@]}
 
 # Don’t animate opening applications from the Dock
@@ -265,7 +265,6 @@ defaults write com.apple.dock "scroll-to-open" -bool true
 
 # Show Command-Tab application list on all monitors.
 defaults write com.apple.dock appswitcher-all-displays -bool true
-
 
 # Hot corners
 # Possible values:
