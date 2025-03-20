@@ -21,8 +21,10 @@
 #
 shopt -s extglob
 for f in "$@"; do
-  f=${f/%+(\/)/}/                           # normalise bundle path so that it ends with /
-  fq=$(sed 's/[^[:alnum:]]/\\&/g' <<<"$f") # quote meta characters for regex
+  # normalise bundle path so that it ends with /
+  f=${f/%+(\/)/}/
+  # quote meta characters for regex
+  fq=$(sed 's/[^[:alnum:]]/\\&/g' <<<"$f")
 
   CFURLStringType=0
   egrep -q '^file://' <<<"${f}" && CFURLStringType=15
