@@ -34,7 +34,7 @@
 (setq doom-theme 'typo-dark)
 
 ;; no thank you, delete-selection-mode (doom default: on)
-(setf delete-selection-mode -1)
+(setf delete-selection-mode nil)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -337,8 +337,10 @@ I like:
 
 ;; we can't use (!after exwm...), since by then exwm has already loaded our keymap.
 ;; ## these shell-commands should only run if we're also running exwm:
-(call-process-shell-command "xmodmap ~/.xmodmaprc")
-(call-process-shell-command "xrdb -merge ~/.Xresources")
+(if (display-graphic-p)
+    ((call-process-shell-command "xmodmap ~/.xmodmaprc")
+     (call-process-shell-command "xrdb -merge ~/.Xresources"))
+  )
 
 (after! ligatures
   (progn
