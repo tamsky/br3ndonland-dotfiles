@@ -1,0 +1,16 @@
+new_tab emacs
+title emacs
+# bash -l gets correct PATH
+launch bash -lc "emacs -nw"
+
+new_tab gitops
+cd ~/src/s6/bitbucket/gitops
+launch bash
+
+new_tab envs
+cd ~/src/s6/bitbucket/environments-infra-config
+launch bash
+
+new_tab tf-modules
+cd ~/src/s6/bitbucket/terraform-s6-modules
+launch bash
