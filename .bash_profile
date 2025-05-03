@@ -104,9 +104,9 @@ export PROMPT_COMMAND=history_logger
 export PROMPT_COMMAND="history_logger ; ( ( ~/bin/prompt_lite.sh & ) )"
 eval "$(starship init bash)"
 
-### MacOS or Sonoma-ism?
 # TODO: "experiments" framework for randomly-deprecating a feature -> annotates test in shell's $PS1
-#stty erase 
+### MacOS or Sonoma-ism
+stty discard undef
 
 ### instruct UNIX programs that our terminal is UTF-8
 export LC_ALL=en_US.UTF-8
