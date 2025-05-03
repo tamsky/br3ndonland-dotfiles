@@ -607,7 +607,6 @@ cask "zotero" # no arm64_big_sur yet
 # cask "android-platform-tools"
 # cask "arduino"
 # cask "arq"
-# cask "audacity"
 # cask "aws-vault"
 # cask "balenaetcher"
 # cask "beardedspice"
@@ -653,6 +652,7 @@ cask "zotero" # no arm64_big_sur yet
 
 cask "aerial"
 cask "aldente"
+cask "audacity"
 cask "barrier"
 
 # notes:
