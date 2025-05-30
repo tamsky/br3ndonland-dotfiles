@@ -13,7 +13,7 @@ tap "homebrew/services"
 tap "zackelia/formulae"
 
 tap "cloudflare/cloudflare"
-#tap "hashicorp/tap"
+tap "hashicorp/tap"
 #tap "homebrew/cask-fonts" (deprecated)
 #tap "wallix/awless"
 
@@ -484,7 +484,7 @@ cask "zotero" # no arm64_big_sur yet
 # opus
 # p11-kit
 # p7zip
-# packer
+brew "hashicorp/tap/packer"
 # pango
 # pcre
 # pcre2
