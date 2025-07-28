@@ -25,6 +25,8 @@ shopt -s globstar histappend nullglob
 if [[ -z $HOMEBREW_PREFIX ]]; then
   case $(uname) in
   Darwin)
+    # This may be The Way now, instead of all the extra logic that follows.
+    # HOMEBREW_PREFIX="$(brew --prefix)"
     if [[ $(uname -m) == 'arm64' ]]; then
       HOMEBREW_PREFIX='/opt/homebrew'
     elif [[ $(uname -m) == 'x86_64' ]]; then
@@ -43,8 +45,11 @@ if [[ -z $HOMEBREW_PREFIX ]]; then
     ;;
   esac
 fi
+# shellenv here sets HOMEBREW_{PREFIX,CELLAR,REPOSITORY}/PATH/INFOPATH
+# perhaps we don't need the above logic anymore?
+# Unless Linux brew isn't as well supported?
 if [[ -d $HOMEBREW_PREFIX ]]; then
-  eval $($HOMEBREW_PREFIX/bin/brew shellenv)
+  eval $(${HOMEBREW_PREFIX}/bin/brew shellenv)
 fi
 
 ### if doom is checked out, add it to our PATH
@@ -118,8 +123,8 @@ if [ $(type -t dedup_input) ] ; then
 fi
 
 # Add tab completion for many Bash commands
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] &&
-  source "/opt/homebrew/etc/profile.d/bash_completion.sh"
+[[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] &&
+  source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
 [ -f /etc/bash_completion ] &&
   source /etc/bash_completion
