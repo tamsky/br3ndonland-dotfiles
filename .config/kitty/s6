@@ -3,7 +3,7 @@
 new_tab emacs
 title emacs
 # bash -l gets correct PATH
-launch /opt/homebrew/bin/bash -lc "emacs -nw"
+launch /opt/homebrew/bin/bash -lc "exec emacs -nw"
 
 new_tab gitops
 cd ~/src/s6/bitbucket/gitops
