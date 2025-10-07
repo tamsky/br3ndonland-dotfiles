@@ -58,6 +58,17 @@ automatically-unhide-macos-hidden-apps = false
     outer.top =        0
     outer.right =      0
 
+[workspace-to-monitor-force-assignment]
+1 = ['built-in', 'main']
+2 = ['built-in', 'main']
+3 = ['main']
+4 = ['main']
+5 = ['main']
+6 = ['main']
+7 = ['main']
+8 = ['main']
+9 = ['uxplay', 'built-in']
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
@@ -108,8 +119,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-l = 'move right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    alt-minus = 'resize smart -50'
-    alt-equal = 'resize smart +50'
+    alt-minus = 'resize smart -100'
+    alt-equal = 'resize smart +100'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'
@@ -181,6 +192,9 @@ automatically-unhide-macos-hidden-apps = false
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
+    alt-shift-ctrl-tab = 'move-node-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
