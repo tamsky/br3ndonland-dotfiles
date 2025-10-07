@@ -91,3 +91,6 @@
 ;;   ;; Load the theme of your choice:
 ;;   (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
 ;;   :bind ("<f5>" . modus-themes-toggle))
+
+(package! copilot
+  :recipe (:host github :repo "s6-marct/copilot.el" :files ("*.el")))
