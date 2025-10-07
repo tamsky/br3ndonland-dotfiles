@@ -93,4 +93,4 @@
 ;;   :bind ("<f5>" . modus-themes-toggle))
 
 (package! copilot
-  :recipe (:host github :repo "s6-marct/copilot.el" :files ("*.el")))
+  :recipe (:host github :repo "tamsky/copilot.el" :files ("*.el")))
