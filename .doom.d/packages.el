@@ -51,7 +51,8 @@
 
 (package! yasnippet)
 
-(package! exwm)     ;; emacs, not just for text buffers anymore
+;; Failed to locate a ':os exwm' module
+;;(package! exwm)     ;; emacs, not just for text buffers anymore
 (package! org-roam) ;; not sure - need more info
 (package! org-download) ;; drag n drop images?
 (package! org-bullets)  ;; fancy dots?
@@ -94,3 +95,6 @@
 
 (package! copilot
   :recipe (:host github :repo "tamsky/copilot.el" :files ("*.el")))
+
+(package! eca
+  :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))

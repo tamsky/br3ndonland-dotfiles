@@ -5,6 +5,10 @@
 
 cask_args appdir: "/Applications", require_sha: true
 
+#############################
+#### TAPS
+#############################
+
 #
 # brew tap-info --installed
 #
@@ -19,6 +23,15 @@ tap "hashicorp/tap"
 
 tap "d12frosted/emacs-plus"
 # requires
+
+tap "FelixKratz/formula/borders"
+
+#############################
+#### BREW
+#############################
+
+# new items at top
+brew install "FelixKratz/formulae/borders"
 
 brew "automake"
 brew "autoconf"
