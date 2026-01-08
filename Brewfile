@@ -26,11 +26,18 @@ tap "d12frosted/emacs-plus"
 
 tap "FelixKratz/formula/borders"
 
+# for controlling Logitech Litra lights:
+tap "timrogers/tap" # litra
+
 #############################
 #### BREW
 #############################
 
 # new items at top
+
+# cli to control Logitech Litra lights:
+brew install "timrogers/formulae/litra"
+
 brew install "FelixKratz/formulae/borders"
 
 brew "automake"
@@ -58,6 +65,9 @@ brew "eksctl"
 # required for emacs-plus
 brew "libgccjit"
 brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-native-comp"]
+
+# decent diff for yaml
+brew "dyff"
 
 brew "exiftool"
 brew "fd"   # required for DOOM
