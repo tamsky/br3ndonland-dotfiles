@@ -7,7 +7,7 @@
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to com~mit.
 
-for _file in ~/.{functions}; do
+for _file in ~/.{functions,exports}; do
   [ -r "$_file" ] && [ -f "$_file" ] && source "$_file";
 done
 unset _file
