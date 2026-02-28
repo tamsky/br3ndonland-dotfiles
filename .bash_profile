@@ -19,7 +19,7 @@ unset _file
 
 ### options
 HISTCONTROL=ignoreboth
-shopt -s globstar histappend nullglob
+shopt -s globstar histappend failglob
 
 ### set up homebrew vars and PATH
 if [[ -z $HOMEBREW_PREFIX ]]; then
@@ -61,6 +61,14 @@ fi
 if [[ -f $HOME/Library/Python/3.9/bin/hg ]]; then
   PATH=$HOME/Library/Python/3.9/bin:$PATH
 fi
+
+### if uv is installed, add $HOME/.local/bin to our PATH
+if [[ -d $HOME/.local/bin ]]; then
+  PATH=$HOME/.local/bin:$PATH
+fi
+
+# Assumes 'export PATH' already ran.
+# perhaps we're wrong?
 
 #########################
 ### aliases/functions ###
