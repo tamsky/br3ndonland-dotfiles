@@ -3,7 +3,7 @@
 #
 
 # Make vim the default editor
-export EDITOR="emacs";
+export EDITOR="emacs -nw";
 
 #
 ## LESS behavior
