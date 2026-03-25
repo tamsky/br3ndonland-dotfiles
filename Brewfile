@@ -36,9 +36,9 @@ tap "timrogers/tap" # litra
 # new items at top
 
 # cli to control Logitech Litra lights:
-brew install "timrogers/formulae/litra"
+brew "timrogers/formulae/litra"
 
-brew install "FelixKratz/formulae/borders"
+brew "FelixKratz/formulae/borders"
 
 brew "automake"
 brew "autoconf"
@@ -212,7 +212,8 @@ brew "zeromq"
 
 brew "ansible"
 brew "argocd"
-brew "bclm"
+# battery charge level max (deprecated or Intel-only?, obsoleted by Aldente?)
+# brew "bclm"
 brew "ripgrep"  # required for DOOM
 brew "screen"
 
