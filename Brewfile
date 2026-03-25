@@ -40,7 +40,7 @@ tap "d12frosted/emacs-plus"
 # new items at top
 
 # cli to control Logitech Litra lights:
-brew "timrogers/formulae/litra"
+# brew "timrogers/formulae/litra"
 
 brew "FelixKratz/formulae/borders"
 
