@@ -12,8 +12,10 @@ cask_args appdir: "/Applications", require_sha: true
 #
 # brew tap-info --installed
 #
-tap "homebrew/bundle"
-tap "homebrew/services"
+# deprecated
+# tap "homebrew/bundle"
+# deprecated
+# tap "homebrew/services"
 tap "zackelia/formulae"
 
 tap "cloudflare/cloudflare"
@@ -24,10 +26,12 @@ tap "hashicorp/tap"
 tap "d12frosted/emacs-plus"
 # requires
 
-tap "FelixKratz/formula/borders"
+# not correct syntax yet:
+# tap "FelixKratz/formula/borders"
 
 # for controlling Logitech Litra lights:
-tap "timrogers/tap" # litra
+# not correct syntax yet:
+# tap "timrogers/tap" # litra
 
 #############################
 #### BREW
@@ -82,8 +86,10 @@ brew "gawk"
 brew "gd"
 brew "gh"
 brew "git"
-brew "git-lfs"
-brew "gnupg"
+# probably ok to skip
+# brew "git-lfs"
+# probably ok to skip
+# brew "gnupg"
 brew "gnu-sed"
 brew "gnu-tar"
 brew "go"
@@ -685,14 +691,16 @@ cask "blackhole-2ch"
 
 cask "calibre"
 cask "cloudflare-warp"
-cask "coconutbattery"
+# download failed
+#cask "coconutbattery"
 cask "drivedx"
 cask "firefox"
 cask "flux"
 cask "font-iosevka"
 cask "font-inconsolata", args: { require_sha: false }
 cask "font-terminus"
-cask "font-source-code-pro"
+# sha256 missing
+# cask "font-source-code-pro"
 cask "gimp"
 cask "google-chrome", args: { require_sha: false }
 cask "grandperspective"
@@ -711,7 +719,8 @@ cask "steam", args: { require_sha: false }
 cask "telegram-desktop"
 cask "tigervnc-viewer"
 cask "vagrant" # @ 2.4.0
-cask "vmware-fusion"
+# download failed
+#cask "vmware-fusion"
 cask "whatsapp"
 cask "yubico-authenticator"
 cask "zoom"
