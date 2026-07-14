@@ -9,7 +9,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+      user-mail-address "john@example.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -440,3 +440,26 @@ I like:
 (define-key key-translation-map (kbd "M-[     1 ;   9 B") (kbd "M-<down>"))
 (define-key key-translation-map (kbd "M-[     1 ;   9 C") (kbd "M-<right>"))
 (define-key key-translation-map (kbd "M-[     1 ;   9 D") (kbd "M-<left>"))
+
+
+;; --------------------
+(after! gptel
+  (setq gptel-backend
+        (gptel-make-openai "LM Studio"
+                   :host "localhost:1234"
+                   :endpoint "/v1/chat/completions"
+                   :stream t
+                   :models '("qwen3.6-35b-a3b")
+;;                   :models '("qwen2.5-coder-7b-instruct") ; Replace with our exact loaded model name
+                   )))
+
+
+(after! aidermacs
+  (setq aidermacs-args '("--openai-api-base" "http://localhost:1234/v1"
+                         "--openai-api-key" "not-needed"
+;;                         "--model" "openai/qwen3.6-35b-a3b"
+                         "--model" "openai/qwen3-coder-next"
+                         "--no-show-model-warnings"
+                         "--no-auto-commits"
+                         "--no-git"
+                         )))

@@ -99,3 +99,11 @@
 (package! eca
   :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
 (package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
+
+;; gptel - ai mode
+(package! gptel)
+;;  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("*.el")))
+
+;; aidermacs - agentic ai mode
+(package! aidermacs
+  :recipe (:host github :repo "MatthewZMD/aidermacs" :files ("\*.el")))
