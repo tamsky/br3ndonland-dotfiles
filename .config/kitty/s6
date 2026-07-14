@@ -2,8 +2,12 @@
 
 new_tab emacs
 title emacs
+cd ~/src/s6/bitbucket/
 # bash -l gets correct PATH
-launch /opt/homebrew/bin/bash -lc "exec emacs -nw"
+# how kitty launches this:
+#   launch /opt/homebrew/bin/bash -lc "exec emacs -nw
+# creates problems with terminal control ownership getting stuck
+launch /opt/homebrew/bin/bash
 
 new_tab gitops
 cd ~/src/s6/bitbucket/gitops
