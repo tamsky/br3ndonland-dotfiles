@@ -136,3 +136,8 @@ fi
 
 [ -f /etc/bash_completion ] &&
   source /etc/bash_completion
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mtamsky/.lmstudio/bin"
+# End of LM Studio CLI section
+

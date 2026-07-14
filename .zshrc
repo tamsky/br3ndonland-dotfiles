@@ -99,3 +99,8 @@ if [[ -d $HOMEBREW_PREFIX/share/zsh-syntax-highlighting ]]; then
 elif [[ -d $HOME/.zsh/zsh-syntax-highlighting ]]; then
   . $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mtamsky/.lmstudio/bin"
+# End of LM Studio CLI section
+
