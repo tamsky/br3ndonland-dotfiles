@@ -86,6 +86,8 @@ pu = pull -u
 clean = purge --print
 clean-for-realsies = purge
 
+mine = !$HG bookmarks | grep mtamsky | awk '{print $$2 " " $$1}' | sort -n
+
 # default shelve extension:
 ##################################
 browse = shelve --list --stat
