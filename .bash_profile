@@ -141,3 +141,4 @@ fi
 export PATH="$PATH:/Users/mtamsky/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export AWS_PAGER="less -X -R"
