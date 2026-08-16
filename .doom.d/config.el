@@ -446,19 +446,20 @@ I like:
 (after! gptel
   (setq gptel-backend
         (gptel-make-openai "LM Studio"
+                   :protocol "http"
                    :host "localhost:1234"
                    :endpoint "/v1/chat/completions"
                    :stream t
-                   :models '("qwen3.6-35b-a3b")
-;;                   :models '("qwen2.5-coder-7b-instruct") ; Replace with our exact loaded model name
+                   :key "local"
+                   :models '("qwen/qwen3.8-27b")
                    )))
-
 
 (after! aidermacs
   (setq aidermacs-args '("--openai-api-base" "http://localhost:1234/v1"
                          "--openai-api-key" "not-needed"
 ;;                         "--model" "openai/qwen3.6-35b-a3b"
-                         "--model" "openai/qwen3-coder-next"
+;;                         "--model" "openai/qwen3-coder-next"
+                         "--model" "qwen/qwen3.8-27b"
                          "--no-show-model-warnings"
                          "--no-auto-commits"
                          "--no-git"
