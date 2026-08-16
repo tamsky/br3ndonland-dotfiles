@@ -455,11 +455,10 @@ I like:
                    )))
 
 (after! aidermacs
-  (setq aidermacs-args '("--openai-api-base" "http://localhost:1234/v1"
-                         "--openai-api-key" "not-needed"
-;;                         "--model" "openai/qwen3.6-35b-a3b"
-;;                         "--model" "openai/qwen3-coder-next"
-                         "--model" "qwen/qwen3.8-27b"
+  (setq aidermacs-args '("--openai-api-base" "http://127.0.0.1:1234/v1"
+                         "--openai-api-key" "must-not-be-blank-but-is-unused"
+                         ;; 'lm_studio' conveys the API, 'qwen/' is part of the model name:
+                         "--model" "lm_studio/qwen/qwen3.8-27b"
                          "--no-show-model-warnings"
                          "--no-auto-commits"
                          "--no-git"
