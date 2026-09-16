@@ -5,14 +5,14 @@
 # Load the shell dotfiles, and then some:
 #
 # * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to com~mit.
+# * ~/.extra can be used for other settings you don’t want to commit.
 
-for _file in ~/.{functions,exports}; do
+for _file in ~/.{functions,exports,aliases}; do
   [ -r "$_file" ] && [ -f "$_file" ] && source "$_file";
 done
 unset _file
 
-# for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+# for file in ~/.{path,bash_prompt,extra}; do
 #         [ -r "$file"  ] && [ -f "$file"  ] && source "$file";
 #         done;
 #         unset file;
@@ -49,7 +49,7 @@ fi
 # perhaps we don't need the above logic anymore?
 # Unless Linux brew isn't as well supported?
 if [[ -d $HOMEBREW_PREFIX ]]; then
-  eval $(${HOMEBREW_PREFIX}/bin/brew shellenv)
+  eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 fi
 
 ### if doom is checked out, add it to our PATH
