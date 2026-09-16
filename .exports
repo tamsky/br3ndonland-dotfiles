@@ -25,3 +25,8 @@ export HISTFILESIZE=$HISTSIZE;
 export HISTCONTROL=ignoredups;
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:history";
+
+#
+## deepseek harness
+#
+export DSH_TELEMETRY_DISABLED=true
