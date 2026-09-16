@@ -41,6 +41,7 @@ status = false
 [core]
 commentchar = ";"
 editor = code --wait
+pager =
 [credential]
 helper = osxkeychain
 [filter "lfs"]
