@@ -36,7 +36,7 @@ tag = tag -a -s
 [branch]
 autosetuprebase = always
 [commit]
-gpgsign = true
+	gpgsign = false
 status = false
 [core]
 commentchar = ";"
@@ -85,3 +85,8 @@ autostash = true
 [user]
 	name = Marc Tamsky
 	email = tamsky@users.noreply.github.com
+[url "https://bitbucket.org"]
+	insteadOf = git@bitbucket.org:snippets/
+[credential "https://bitbucket.org"]
+	helper = !bash /Users/mtamsky/.git-helpers/onepassword-bitbucket.sh
+	username = x-bitbucket-api-token-auth
