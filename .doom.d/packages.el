@@ -107,3 +107,7 @@
 ;; aidermacs - agentic ai mode
 (package! aidermacs
   :recipe (:host github :repo "MatthewZMD/aidermacs" :files ("\*.el")))
+
+;; agent-shell - supports Agent Client Protocol (acp), specifically DeepSeek Harness (dsh-plugin-acp)
+(package! agent-shell
+  :recipe (:host github :repo "xenodium/agent-shell"))

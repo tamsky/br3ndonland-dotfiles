@@ -463,3 +463,20 @@ I like:
                          "--no-auto-commits"
                          "--no-git"
                          )))
+
+
+(use-package! agent-shell
+  :defer t
+  :commands (agent-shell agent-shell-new)
+  :config
+  ;; Fix Doom dropping agent-shell buffers during workspace cleanups
+  (add-hook 'agent-shell-mode-hook
+            (lambda () (setq-local doom-real-buffer-p t)))
+
+  ;; Set your preferred default agent to bypass the prompt (Optional)
+  ;; Options depend on your locally installed ACP CLIs (e.g., Claude Code, Gemini CLI)
+  (setq agent-shell-preferred-agent-config 
+        (agent-shell-anthropic-make-claude-code-config)))
+
+(after! dirvish
+  (dirvish-override-dired-mode -1))
