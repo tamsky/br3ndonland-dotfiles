@@ -157,7 +157,7 @@
         +dragndrop      ; drag & drop files/images into org buffers
         +present        ; using org-mode for presentations
 ;        +download       ; does this work?
-;        +pretty ; pretty?
+        +pretty         ; Enables Doom's native Org support with prettification
 ;        +journal ; journaal?
 ;        +hugo ;
 ;        +roam ;

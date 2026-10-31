@@ -53,9 +53,11 @@
 
 ;; Failed to locate a ':os exwm' module
 ;;(package! exwm)     ;; emacs, not just for text buffers anymore
-(package! org-roam) ;; not sure - need more info
-(package! org-download) ;; drag n drop images?
-(package! org-bullets)  ;; fancy dots?
+;; UI & Tidying:
+(package! org-modern)
+(package! org-tidy)
+(package! nerd-icons)
+
 (package! beacon)   ;; cursors that glow when you switch and scroll
 (package! switch-window)  ;; help me move around faster, wait, what? also works in console mode? figlet is a must.
 (package! vterm-toggle)   ;; (melpa) better than our own
@@ -111,3 +113,9 @@
 ;; agent-shell - supports Agent Client Protocol (acp), specifically DeepSeek Harness (dsh-plugin-acp)
 (package! agent-shell
   :recipe (:host github :repo "xenodium/agent-shell"))
+
+;; auth for jira
+(package! auth-source-1password)
+;; 2-Way Jira Sync Engine
+(package! ejira
+  :recipe (:host github :repo "nyyManni/ejira" :protocol ssh))

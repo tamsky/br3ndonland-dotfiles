@@ -219,8 +219,8 @@
 
 (defun mt/org-mode-setup ()
   (message "mt/org-mode-setup-hook")
-  (org-indent-mode)
-  (org-bullets-mode 1)
+  ; (org-indent-mode)
+  ; (org-bullets-mode 1)
   (variable-pitch-mode 1)
   (org-display-inline-images)
 
@@ -480,3 +480,95 @@ I like:
 
 (after! dirvish
   (dirvish-override-dired-mode -1))
+
+;;;; START 
+;;;; START org-mode suggested gemini setup
+;;;; START 
+;; =============================================================================
+;; 1. ORG-MODERN & ORG-TIDY (Kitty Visual Cleanup)
+;; =============================================================================
+(use-package! org-modern
+  :hook (org-mode . global-org-modern-mode)
+  :config
+  (setq org-modern-star '("󰄬" "󰅂" "󰅁" "󰅀")        ; Nerd Font glyphs
+        org-modern-table t                        ; Styled table borders
+        org-modern-variable-pitch nil             ; Keep monospace aligned
+        org-modern-block-name t                   ; Clean code block headers
+        org-modern-keyword t                      ; Replace #+KEYWORDS with pills
+        org-modern-priority
+        '((?A . "\uF0BF0 ")         ; Priority badges, shifted to hit A in Isoevka
+          (?B . "\uF0BF3 ")
+          (?C . "\uF0BF6 "))))
+
+(use-package! org-tidy
+  :hook (org-mode . org-tidy-mode)
+  :config
+  ;; Collapses :PROPERTIES: drawers into a subtle symbol as point leaves headline
+  (setq org-tidy-properties-style 'inline
+        org-tidy-properties-inline-symbol " ⚙"))
+
+;; Native Kitty Terminal protocol image previews inside emacs -nw
+(after! org
+  (setq org-startup-with-inline-images t
+        org-image-actual-width '(600)))
+
+
+;; =============================================================================
+;; LOAD UNTRACKED / LOCAL CONFIGURATION FIRST
+;; =============================================================================
+(let ((local-config (expand-file-name "config-local.el" doom-user-dir)))
+  (when (file-exists-p local-config)
+    (load local-config)))
+
+;; =============================================================================
+;; 2. EJIRA (2-Way Jira Synchronization)
+;; =============================================================================
+(use-package! ejira
+  :init
+  ;; Path to your main Jira tracking file
+  (setq ejira-org-directory "~/org/jira/"
+        org-id-track-globally t
+        ejira-projects '("INF" "BUILD"))
+  
+  :config
+  ;;; restrict synchronization to only our tickets (assigned or reported)
+  (setq ejira-update-jql-unresolved-fn #'ejira-jql-my-unresolved-project-tickets)
+  
+  (add-hook 'jiralib2-post-login-hook #'ejira-guess-epic-sprint-fields)
+
+  (require 'ejira-agenda)
+  ;; Make the issues visisble in your agenda by adding `ejira-org-directory'
+  ;; into your `org-agenda-files'.
+  (add-to-list 'org-agenda-files ejira-org-directory)
+
+  ;; Add an agenda view to browse the issues that ...
+  (org-add-agenda-custom-command
+   '("j" "My JIRA issues"
+     ((ejira-jql "resolution = unresolved and assignee = currentUser()"
+                 ((org-agenda-overriding-header "Assigned to me")))))))
+
+
+  ;; Setup ejira hooks and keybindings
+  (ejira-setup)
+  
+  ;; Keymaps for fast sync inside Org buffers
+  (map! :map org-mode-map
+        :localleader
+        :prefix ("j" . "jira")
+        :desc "Sync issue under point"  "s" #'ejira-update-issue
+        :desc "Pull assigned tasks"    "p" #'ejira-get-my-issues
+        :desc "Create issue from task" "c" #'ejira-create-issue))
+
+;; =============================================================================
+;; 3. OUT-OF-POCKET CAPTURE TEMPLATES
+;; =============================================================================
+(after! org-capture
+  (add-to-list 'org-capture-templates
+               '("b" "Jira Blocker / Interrupt" entry
+                 (file "~/org/inbox.org")
+                 "* TODO %?\n:PROPERTIES:\n:Created: %U\n:END:\n\nLink/Context: %a")))
+
+
+;;; END
+;;; END gemini-suggested config-setup block
+;;; END
