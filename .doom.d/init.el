@@ -1,10 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; compatibility for emacs-29 with emacs-31 structures:
-(eval-and-compile
-  (when (and (fboundp 'straight-use-package) (not (fboundp 'static-when)))
-    (straight-use-package 'compat)))
-
 ;; This file controls what Doom modules are enabled and what order they load
 ;; in. Remember to run 'doom sync' after modifying it!
 

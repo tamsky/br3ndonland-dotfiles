@@ -51,6 +51,12 @@
 
 (package! yasnippet)
 
+;; transient >= 0.13.8 requires compat's `static-when', which only exists on
+;; compat's `emacs-31' branch (compat's `main' tracks an older baseline).
+;; :pin to that branch's tip commit since straight doesn't reliably honor a
+;; bare :branch override merged over doom core's existing compat recipe.
+(package! compat :pin "90880f81419577e1d3f68424d2a3adf31e6d663e")
+
 ;; Failed to locate a ':os exwm' module
 ;;(package! exwm)     ;; emacs, not just for text buffers anymore
 ;; UI & Tidying:
